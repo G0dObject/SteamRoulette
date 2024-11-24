@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "4Rs7pZb5GGxlGvEUb9iVX07QXcLG5L/GqMruu5Duo+g=",
+  "Source": "SteamRoullete.WebApi",
+  "BasePath": "_content/SteamRoullete.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,25 @@
+using Microsoft.Extensions.Hosting;
+
+var builder = DistributedApplication.CreateBuilder(args);
+
+var cache = builder.AddRedis("cache");
+
+var webapi = builder.AddProject<Projects.SteamRoullete_WebApi>("WebApi");
+
+var frontend = builder.AddNpmApp("frontend", "../SteamRoullete.FrontEnd", "dev")
+    .WithReference(webapi)
+    .WithReference(cache)
+    .WithHttpEndpoint(env: "VITE_PORT")
+    .WithExternalHttpEndpoints()
+
+.PublishAsDockerFile();
+
+var launchProfile = builder.Configuration["DOTNET_LAUNCH_PROFILE"] ??
+    builder.Configuration["AppHost:DefaultLaunc hProfileName"];
+
+if (builder.Environment.IsDevelopment() && launchProfile == "https")
+{
+    frontend.WithEnvironment("NODE_TLS_REJECT_UNAUTHORIZED", "0");
+}
+
+builder.Build().Run();

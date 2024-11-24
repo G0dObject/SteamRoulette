@@ -1,0 +1,12 @@
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\bin\Debug\net8.0\SteamRoulette.Persistanse.deps.json
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\bin\Debug\net8.0\SteamRoulette.Persistanse.dll
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\bin\Debug\net8.0\SteamRoulette.Persistanse.pdb
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\SteamRoulette.Persistanse.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\SteamRoulette.Persistanse.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\SteamRoulette.Persistanse.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\SteamRoulette.Persistanse.AssemblyInfo.cs
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\SteamRoulette.Persistanse.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\SteamRoulette.Persistanse.dll
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\refint\SteamRoulette.Persistanse.dll
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\SteamRoulette.Persistanse.pdb
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\ref\SteamRoulette.Persistanse.dll

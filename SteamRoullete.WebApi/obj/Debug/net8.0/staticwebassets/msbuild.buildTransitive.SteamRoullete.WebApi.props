@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\SteamRoullete.WebApi.props" />
+</Project>

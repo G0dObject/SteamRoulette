@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #151a22;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+:not(.touch)::-webkit-scrollbar, :not(.touch) ::-webkit-scrollbar {
+  width: 2px;
+  height: 1px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+}
+:not(.touch)::-webkit-scrollbar-thumb, :not(.touch)::-webkit-scrollbar-thumb, :not(.touch)::-webkit-scrollbar-thumb:vertical, :not(.touch)::-webkit-scrollbar-thumb:vertical {
+  background-color: #202630;
+  border: none;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+}
+:not(.touch)::-webkit-scrollbar-track, :not(.touch) ::-webkit-scrollbar-track {
+  background: #e8e8e8;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+}
+:not(.touch)::selection, :not(.touch) ::selection {
+  background: #202630;
+}

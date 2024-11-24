@@ -1,0 +1,198 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\controllers\\authorizationcontrollerr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\controllers\\authorizationcontrollerr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\authoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\authoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\dto\\logintransferobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\dto\\logintransferobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\dto\\loginresponsetransferobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\dto\\loginresponsetransferobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\services\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\services\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\dto\\registertransferobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\dto\\registertransferobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\extension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\extension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthorizationControllerr.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Controllers\\AuthorizationControllerr.cs",
+              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\Controllers\\AuthorizationControllerr.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Controllers\\AuthorizationControllerr.cs",
+              "RelativeToolTip": "SteamRoullete.WebApi\\Controllers\\AuthorizationControllerr.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAywC0AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T05:27:14.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\appsettings.json",
+              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\appsettings.json",
+              "RelativeToolTip": "SteamRoullete.WebApi\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-24T05:27:03.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "JwtTokenGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Services\\JwtTokenGenerator.cs",
+              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\Services\\JwtTokenGenerator.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Services\\JwtTokenGenerator.cs",
+              "RelativeToolTip": "SteamRoullete.WebApi\\Services\\JwtTokenGenerator.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAgwBkAAABfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T05:26:49.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthOptions.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\AuthOptions.cs",
+              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\AuthOptions.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\AuthOptions.cs",
+              "RelativeToolTip": "SteamRoullete.WebApi\\AuthOptions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T05:26:10.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginTransferObject.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\DTO\\LoginTransferObject.cs",
+              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\DTO\\LoginTransferObject.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\DTO\\LoginTransferObject.cs",
+              "RelativeToolTip": "SteamRoullete.WebApi\\DTO\\LoginTransferObject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAIAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T05:27:12.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoginResponseTransferObject.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\DTO\\LoginResponseTransferObject.cs",
+              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\DTO\\LoginResponseTransferObject.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\DTO\\LoginResponseTransferObject.cs",
+              "RelativeToolTip": "SteamRoullete.WebApi\\DTO\\LoginResponseTransferObject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA0AAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T05:27:11.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RegisterTransferObject.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\DTO\\RegisterTransferObject.cs",
+              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\DTO\\RegisterTransferObject.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\DTO\\RegisterTransferObject.cs",
+              "RelativeToolTip": "SteamRoullete.WebApi\\DTO\\RegisterTransferObject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T05:27:10.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TestController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Controllers\\TestController.cs",
+              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\Controllers\\TestController.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Controllers\\TestController.cs",
+              "RelativeToolTip": "SteamRoullete.WebApi\\Controllers\\TestController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T05:27:13.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Program.cs",
+              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Program.cs",
+              "RelativeToolTip": "SteamRoullete.WebApi\\Program.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T05:26:45.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Extension.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Extension.cs",
+              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\Extension.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Extension.cs",
+              "RelativeToolTip": "SteamRoullete.WebApi\\Extension.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAwwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T05:26:22.705Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
