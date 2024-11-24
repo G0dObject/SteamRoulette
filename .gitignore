@@ -16,6 +16,7 @@ yarn.lock
 Thumbs.db
 
 # Build output
+*.db
 /dist
 /build
 /bin
