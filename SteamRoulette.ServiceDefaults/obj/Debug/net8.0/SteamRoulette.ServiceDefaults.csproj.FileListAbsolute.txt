@@ -10,3 +10,4 @@ C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.ServiceDefaults\obj\Debu
 C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.ServiceDefaults\obj\Debug\net8.0\refint\SteamRoulette.ServiceDefaults.dll
 C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.ServiceDefaults\obj\Debug\net8.0\SteamRoulette.ServiceDefaults.pdb
 C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.ServiceDefaults\obj\Debug\net8.0\ref\SteamRoulette.ServiceDefaults.dll
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.ServiceDefaults\obj\Debug\net8.0\SteamRoulette.ServiceDefaults.sourcelink.json

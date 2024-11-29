@@ -10,3 +10,7 @@ C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\ne
 C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\refint\SteamRoulette.Persistanse.dll
 C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\SteamRoulette.Persistanse.pdb
 C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\ref\SteamRoulette.Persistanse.dll
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\SteamRoulette.Persistanse.sourcelink.json
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\bin\Debug\net8.0\SteamRoulette.Domain.dll
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\bin\Debug\net8.0\SteamRoulette.Domain.pdb
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.Persistanse\obj\Debug\net8.0\SteamRou.20EA2A82.Up2Date

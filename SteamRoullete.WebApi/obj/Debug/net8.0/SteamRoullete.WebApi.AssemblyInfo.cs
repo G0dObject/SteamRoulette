@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SteamRoullete.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3615ea721c6ce56bfb630c762bbd106b8353d4f2")]
 [assembly: System.Reflection.AssemblyProductAttribute("SteamRoullete.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SteamRoullete.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

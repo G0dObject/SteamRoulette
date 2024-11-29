@@ -8,7 +8,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamRoulette.ServiceDefaul
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamRoullete.WebApi", "SteamRoullete.WebApi\SteamRoullete.WebApi.csproj", "{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteamRoulette.Persistanse", "SteamRoulette.Persistanse\SteamRoulette.Persistanse.csproj", "{D0C0E764-24D9-4202-B343-FB67D38C1625}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamRoulette.Persistanse", "SteamRoulette.Persistanse\SteamRoulette.Persistanse.csproj", "{D0C0E764-24D9-4202-B343-FB67D38C1625}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamRoulette.Domain", "SteamRoulette.Domain\SteamRoulette.Domain.csproj", "{432BEB56-25B4-442A-9D11-07860EB7765E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{D0C0E764-24D9-4202-B343-FB67D38C1625}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0C0E764-24D9-4202-B343-FB67D38C1625}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0C0E764-24D9-4202-B343-FB67D38C1625}.Release|Any CPU.Build.0 = Release|Any CPU
+		{432BEB56-25B4-442A-9D11-07860EB7765E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{432BEB56-25B4-442A-9D11-07860EB7765E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{432BEB56-25B4-442A-9D11-07860EB7765E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{432BEB56-25B4-442A-9D11-07860EB7765E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

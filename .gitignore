@@ -12,6 +12,8 @@ yarn.lock
 *.sln.ide
 *.vscode/
 .vscode/
+.vs/
+
 .DS_Store
 Thumbs.db
 
@@ -20,7 +22,11 @@ Thumbs.db
 /dist
 /build
 /bin
-/obj
+*/obj
+**/obj/
+**/bin/
+
+**/vs/
 /**/*.dll
 /**/*.exe
 /**/*.pdb

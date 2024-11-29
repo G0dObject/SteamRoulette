@@ -1,36 +1,31 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace SteamRoullete.WebApi
 {
     public static class Extension
     {
-        public static IServiceCollection AddJwtBearerAuthentication(this IServiceCollection services)
+        public static IServiceCollection AddCustomAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            _ = services.AddAuthentication(options =>
             {
-                options.RequireHttpsMetadata = false;
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuer = true,
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "Steam";
+            })
+     .AddCookie("Cookies")
+     .AddSteam(options =>
+     {
+         options.SaveTokens = true;
 
-                    ValidIssuer = AuthOptions.ISSUER,
-                    ValidateAudience = true,
-                    ValidAudience = AuthOptions.AUDIENCE,
-                    ValidateLifetime = true,
-
-                    IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
-                    ValidateIssuerSigningKey = true,
-                };
-            });
+         options.ApplicationKey = configuration["Steam:Key"];
+     });
             return services;
         }
 
         public static IServiceCollection AddDefaultServices(this IServiceCollection services)
         {
-            services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
-            services.AddControllers();
+            _ = services.AddEndpointsApiExplorer();
+            _ = services.AddSwaggerGen();
+            _ = services.AddControllers();
 
             return services;
         }

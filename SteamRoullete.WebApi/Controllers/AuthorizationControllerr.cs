@@ -1,82 +1,51 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SteamRoulette.Persistanse;
+using SteamRoulette.Domain;
 using SteamRoullete.WebApi.Services;
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
 namespace SteamRoullete.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LoginController : ControllerBase
+    public class AuthController : ControllerBase
     {
-        private readonly JwtTokenGenerator _jwtTokenGenerator;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly IConfiguration _configuration;
+        private readonly UserManager<SteamUser> _userManager;
+        private readonly SignInManager<SteamUser> _signInManager;
+        private readonly UserService _userService;
 
-        public LoginController(JwtTokenGenerator jwtTokenGenerator, MyDbContext db, UserManager<IdentityUser> userManager)
+        public AuthController(IConfiguration configuration, UserManager<SteamUser> userManager, SignInManager<SteamUser> signInManager, UserService userService)
         {
-            _jwtTokenGenerator = jwtTokenGenerator;
+            _userService = userService;
+            _configuration = configuration;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
-        [HttpPost]
-        [Route("Login")]
-        public async Task<object> Login([FromBody] LoginTransferObject model)
+        [HttpGet("Login")]
+        public IActionResult Login()
         {
-            IdentityUser? user = await _userManager.FindByEmailAsync(model.Email);
+            return Challenge(new AuthenticationProperties() { RedirectUri = _configuration["Steam:Redirect"] }, "Steam");
+        }
 
-            if (user != null)
+        //add validation
+        [HttpGet("HandleResponse")]
+        public async Task<IActionResult> HandleResponse()
+        {
+            AuthenticateResult authenticateResult = await HttpContext.AuthenticateAsync("Steam");
+
+            if (authenticateResult.Succeeded)
             {
-                bool currect = await _userManager.CheckPasswordAsync(user, model.Password);
-
-                if (currect)
-                {
-                    List<Claim> authClaims = new()
-                    {
-                        new Claim(ClaimTypes.Name, user.UserName),
-                        new Claim(ClaimTypes.NameIdentifier.ToString(), user.Id.ToString())
-                    };
-
-                    JwtSecurityToken? token = _jwtTokenGenerator.GenerateJwtToken(authClaims);
-
-                    return new LoginResponseTransferObject(token, user.UserName, (user.Id));
-                }
+                _ = _userService.Authorize(authenticateResult);
             }
-            return StatusCode(401);
-        }
-
-        [HttpPost]
-        [Route("Register")]
-        public async Task<IActionResult> Register([FromBody] RegisterTransferObject model)
-        {
-            IdentityUser userExists = await _userManager.FindByEmailAsync(model.Email);
-            if (userExists != null)
+            else
             {
-                return StatusCode(StatusCodes.Status409Conflict, "Alredy exist");
+                return StatusCode(401);
             }
 
-            IdentityUser user = new()
-            {
-                Email = model.Email,
-                SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.Username
-            };
-            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
-            return !result.Succeeded
-                ? StatusCode(StatusCodes.Status400BadRequest, "Create Failed")
-                : Ok("User created successfully!");
-        }
-
-        [HttpGet]
-        [Route("Test")]
-        [Authorize]
-        public string Test()
-        {
-            return "Ok";
+            return Redirect("/");
         }
     }
 }

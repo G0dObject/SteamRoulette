@@ -52,3 +52,4 @@ C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.AppHost\bin\Debug\net8.0
 C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.AppHost\bin\Debug\net8.0\Aspire.Hosting.Redis.dll
 C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.AppHost\obj\Debug\net8.0\Aspire\references\SteamRoullete_WebApi.ProjectMetadata.g.cs
 C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.AppHost\obj\Debug\net8.0\Aspire\references\SteamRoulette_ServiceDefaults.ProjectMetadata.g.cs
+C:\Users\Admin\source\repos\SteamRoulette\SteamRoulette.AppHost\obj\Debug\net8.0\SteamRoulette.AppHost.sourcelink.json
