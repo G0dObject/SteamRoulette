@@ -1,39 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\",
+  "WorkspaceRootPath": "I:\\Dotnet\\SteamRoulette\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D0C0E764-24D9-4202-B343-FB67D38C1625}|SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroulette.persistanse\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D0C0E764-24D9-4202-B343-FB67D38C1625}|SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj|solutionrelative:steamroulette.persistanse\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\controllers\\authorizationcontrollerr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\controllers\\authorizationcontrollerr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|i:\\dotnet\\steamroulette\\steamroullete.webapi\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroullete.webapi\\services\\steamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\services\\steamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|i:\\dotnet\\steamroulette\\steamroullete.webapi\\controllers\\authorizationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\controllers\\authorizationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{432BEB56-25B4-442A-9D11-07860EB7765E}|SteamRoulette.Domain\\SteamRoulette.Domain.csproj|c:\\users\\admin\\source\\repos\\steamroulette\\steamroulette.domain\\common\\steamuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{432BEB56-25B4-442A-9D11-07860EB7765E}|SteamRoulette.Domain\\SteamRoulette.Domain.csproj|solutionrelative:steamroulette.domain\\common\\steamuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D0C0E764-24D9-4202-B343-FB67D38C1625}|SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj|i:\\dotnet\\steamroulette\\steamroulette.persistanse\\extension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0C0E764-24D9-4202-B343-FB67D38C1625}|SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj|solutionrelative:steamroulette.persistanse\\extension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\AppData\\Local\\SourceServer\\af48b09c27d6b8e92adb20818ef3216dfd1c27ffe9efb5641d9c6859ac675ace\\src\\coreclr\\System.Private.CoreLib\\src\\System\\Threading\\Monitor.CoreCLR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\AppData\\Local\\SourceServer\\fe9af63f3693c4320fa437e55759f9d43895c4b8bfe16a531d2708d51ffca5b5\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\WaitHandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\AppData\\Local\\SourceServer\\af420f068a1e36ff69b1cc019f439c545508d9b7f10ba9f229978c55036f1d0a\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\PortableThreadPool.IO.Windows.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|i:\\dotnet\\steamroulette\\steamroullete.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A36EC61F-EF00-4463-9DF9-E74F5E0C52B3}|SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj|solutionrelative:steamroullete.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,131 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SteamService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Services\\SteamService.cs",
-              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\Services\\SteamService.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Services\\SteamService.cs",
-              "RelativeToolTip": "SteamRoullete.WebApi\\Services\\SteamService.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAA/wBoAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T05:35:55.573Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AuthorizationControllerr.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Controllers\\AuthorizationControllerr.cs",
-              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\Controllers\\AuthorizationControllerr.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Controllers\\AuthorizationControllerr.cs",
-              "RelativeToolTip": "SteamRoullete.WebApi\\Controllers\\AuthorizationControllerr.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAIAywC0AAAANAAAA",
+              "Title": "Extension.cs",
+              "DocumentMoniker": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Persistanse\\Extension.cs",
+              "RelativeDocumentMoniker": "SteamRoulette.Persistanse\\Extension.cs",
+              "ToolTip": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Persistanse\\Extension.cs",
+              "RelativeToolTip": "SteamRoulette.Persistanse\\Extension.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvw4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T12:41:27.143Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Services\\UserService.cs",
-              "RelativeToolTip": "SteamRoullete.WebApi\\Services\\UserService.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAIAywC0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T09:30:15.77Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "WaitHandle.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\AppData\\Local\\SourceServer\\fe9af63f3693c4320fa437e55759f9d43895c4b8bfe16a531d2708d51ffca5b5\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\WaitHandle.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\fe9af63f3693c4320fa437e55759f9d43895c4b8bfe16a531d2708d51ffca5b5\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\WaitHandle.cs",
-              "ToolTip": "C:\\Users\\Admin\\AppData\\Local\\SourceServer\\fe9af63f3693c4320fa437e55759f9d43895c4b8bfe16a531d2708d51ffca5b5\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\WaitHandle.cs",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\fe9af63f3693c4320fa437e55759f9d43895c4b8bfe16a531d2708d51ffca5b5\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\WaitHandle.cs",
-              "ViewState": "AQIAAHUAAAAAAAAAAIA1wIIAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T05:54:19.804Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PortableThreadPool.IO.Windows.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\AppData\\Local\\SourceServer\\af420f068a1e36ff69b1cc019f439c545508d9b7f10ba9f229978c55036f1d0a\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\PortableThreadPool.IO.Windows.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\af420f068a1e36ff69b1cc019f439c545508d9b7f10ba9f229978c55036f1d0a\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\PortableThreadPool.IO.Windows.cs",
-              "ToolTip": "C:\\Users\\Admin\\AppData\\Local\\SourceServer\\af420f068a1e36ff69b1cc019f439c545508d9b7f10ba9f229978c55036f1d0a\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\PortableThreadPool.IO.Windows.cs",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\af420f068a1e36ff69b1cc019f439c545508d9b7f10ba9f229978c55036f1d0a\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\PortableThreadPool.IO.Windows.cs",
-              "ViewState": "AQIAALIAAAAAAAAAAAAkwLsAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T05:53:43.386Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MyDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Persistanse\\MyDbContext.cs",
-              "RelativeDocumentMoniker": "SteamRoulette.Persistanse\\MyDbContext.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Persistanse\\MyDbContext.cs",
-              "RelativeToolTip": "SteamRoulette.Persistanse\\MyDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T15:04:39.689Z",
+              "WhenOpened": "2024-12-02T22:02:00.792Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "I:\\Dotnet\\SteamRoulette\\SteamRoullete.WebApi\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\Services\\UserService.cs",
+              "ToolTip": "I:\\Dotnet\\SteamRoulette\\SteamRoullete.WebApi\\Services\\UserService.cs",
+              "RelativeToolTip": "SteamRoullete.WebApi\\Services\\UserService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAmwBsAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T21:45:38.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthorizationController.cs",
+              "DocumentMoniker": "I:\\Dotnet\\SteamRoulette\\SteamRoullete.WebApi\\Controllers\\AuthorizationController.cs",
+              "RelativeDocumentMoniker": "SteamRoullete.WebApi\\Controllers\\AuthorizationController.cs",
+              "ToolTip": "I:\\Dotnet\\SteamRoulette\\SteamRoullete.WebApi\\Controllers\\AuthorizationController.cs",
+              "RelativeToolTip": "SteamRoullete.WebApi\\Controllers\\AuthorizationController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAA3wCwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T21:45:06.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Program.cs",
+              "DocumentMoniker": "I:\\Dotnet\\SteamRoulette\\SteamRoullete.WebApi\\Program.cs",
               "RelativeDocumentMoniker": "SteamRoullete.WebApi\\Program.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\Program.cs",
+              "ToolTip": "I:\\Dotnet\\SteamRoulette\\SteamRoullete.WebApi\\Program.cs",
               "RelativeToolTip": "SteamRoullete.WebApi\\Program.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAnwA8AAABRAAAA",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAnwB0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T15:06:26.45Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Monitor.CoreCLR.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\AppData\\Local\\SourceServer\\af48b09c27d6b8e92adb20818ef3216dfd1c27ffe9efb5641d9c6859ac675ace\\src\\coreclr\\System.Private.CoreLib\\src\\System\\Threading\\Monitor.CoreCLR.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\af48b09c27d6b8e92adb20818ef3216dfd1c27ffe9efb5641d9c6859ac675ace\\src\\coreclr\\System.Private.CoreLib\\src\\System\\Threading\\Monitor.CoreCLR.cs",
-              "ToolTip": "C:\\Users\\Admin\\AppData\\Local\\SourceServer\\af48b09c27d6b8e92adb20818ef3216dfd1c27ffe9efb5641d9c6859ac675ace\\src\\coreclr\\System.Private.CoreLib\\src\\System\\Threading\\Monitor.CoreCLR.cs",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\af48b09c27d6b8e92adb20818ef3216dfd1c27ffe9efb5641d9c6859ac675ace\\src\\coreclr\\System.Private.CoreLib\\src\\System\\Threading\\Monitor.CoreCLR.cs",
-              "ViewState": "AQIAAI4AAAAAAAAAAIA1wJsAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T05:53:37.325Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SteamUser.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Domain\\Common\\SteamUser.cs",
-              "RelativeDocumentMoniker": "SteamRoulette.Domain\\Common\\SteamUser.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Domain\\Common\\SteamUser.cs",
-              "RelativeToolTip": "SteamRoulette.Domain\\Common\\SteamUser.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAAAFQAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T06:47:03.427Z",
+              "WhenOpened": "2024-12-02T21:42:20.202Z",
               "EditorCaption": ""
             }
           ]

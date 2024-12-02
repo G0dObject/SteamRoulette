@@ -8,14 +8,17 @@
     ".NETCoreApp,Version=v8.0": {
       "SteamRoulette.AppHost/1.0.0": {
         "dependencies": {
+          "Aspire.Dashboard.Sdk.win-x64": "8.2.2",
           "Aspire.Hosting.AppHost": "8.0.1",
           "Aspire.Hosting.NodeJs": "8.1.0",
+          "Aspire.Hosting.Orchestration.win-x64": "8.2.2",
           "Aspire.Hosting.Redis": "8.0.1"
         },
         "runtime": {
           "SteamRoulette.AppHost.dll": {}
         }
       },
+      "Aspire.Dashboard.Sdk.win-x64/8.2.2": {},
       "Aspire.Hosting/8.1.0": {
         "dependencies": {
           "Grpc.AspNetCore": "2.63.0",
@@ -93,6 +96,7 @@
           }
         }
       },
+      "Aspire.Hosting.Orchestration.win-x64/8.2.2": {},
       "Aspire.Hosting.Redis/8.0.1": {
         "dependencies": {
           "Aspire.Hosting": "8.1.0"
@@ -520,6 +524,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Aspire.Dashboard.Sdk.win-x64/8.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m4Q3IOPdmHFwe4rSgxWf4njAqXsfaTwjNNkmw1ExltPx2GQr02dP+X91tvMCKY8WvPT3b3/qIyTZoxd1NPgkuw==",
+      "path": "aspire.dashboard.sdk.win-x64/8.2.2",
+      "hashPath": "aspire.dashboard.sdk.win-x64.8.2.2.nupkg.sha512"
+    },
     "Aspire.Hosting/8.1.0": {
       "type": "package",
       "serviceable": true,
@@ -540,6 +551,13 @@
       "sha512": "sha512-dKpV+vDFqoQPKoyEUO4n/BW5Hm3RAFdT+tkLUffjtKyibi1W1SNeU0K1R/j50c5uOj6pGLcwJQA7Iqf7Ir6H/Q==",
       "path": "aspire.hosting.nodejs/8.1.0",
       "hashPath": "aspire.hosting.nodejs.8.1.0.nupkg.sha512"
+    },
+    "Aspire.Hosting.Orchestration.win-x64/8.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hLgDBuxq5ibTist+KrtOi/aMMOKVdoBCwsU6lZeafjAr9XlzepTkhGekp8GPhb6j4DZsEeCSfzCelDY9gbFK/g==",
+      "path": "aspire.hosting.orchestration.win-x64/8.2.2",
+      "hashPath": "aspire.hosting.orchestration.win-x64.8.2.2.nupkg.sha512"
     },
     "Aspire.Hosting.Redis/8.0.1": {
       "type": "package",

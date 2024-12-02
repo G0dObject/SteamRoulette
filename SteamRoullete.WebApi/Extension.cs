@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-
-namespace SteamRoullete.WebApi
+﻿namespace SteamRoullete.WebApi
 {
     public static class Extension
     {

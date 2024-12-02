@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SteamRoulette.Domain;
 using SteamRoullete.WebApi.Services;
-using System.Security.Claims;
 
 namespace SteamRoullete.WebApi.Controllers
 {
@@ -25,27 +24,32 @@ namespace SteamRoullete.WebApi.Controllers
         }
 
         [HttpGet("Login")]
-        public IActionResult Login()
+        public IActionResult Login([FromQuery] string returnUrl)
         {
-            return Challenge(new AuthenticationProperties() { RedirectUri = _configuration["Steam:Redirect"] }, "Steam");
+            var authenticationProperties = new AuthenticationProperties
+            {
+                RedirectUri = Url.Action(nameof(HandleResponse), new { returnUrl })
+            };
+
+            return Challenge(authenticationProperties, "Steam");
         }
 
         //add validation
         [HttpGet("HandleResponse")]
-        public async Task<IActionResult> HandleResponse()
+        public async Task<IActionResult> HandleResponse(string returnUrl)
         {
             AuthenticateResult authenticateResult = await HttpContext.AuthenticateAsync("Steam");
 
             if (authenticateResult.Succeeded)
             {
-                _ = _userService.Authorize(authenticateResult);
+                await _userService.Authorize(authenticateResult);
             }
             else
             {
                 return StatusCode(401);
             }
 
-            return Redirect("/");
+            return Redirect(returnUrl);
         }
     }
 }

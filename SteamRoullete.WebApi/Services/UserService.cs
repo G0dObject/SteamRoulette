@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using SteamRoulette.Domain;
+using SteamRoulette.Persistanse;
 using System.Security.Claims;
 
 namespace SteamRoullete.WebApi.Services
@@ -24,10 +25,15 @@ namespace SteamRoullete.WebApi.Services
             var _steamUserIdUrl = authenticateResult.Principal.Claims.First(f => f.Type == ClaimTypes.NameIdentifier).Value;
             var _steamUserId64 = _steamUserIdUrl.Split('/').Last();
 
-            var user = await _userManager.FindByNameAsync(_steamUserId64);
+            var user = await _userManager.FindBySteamIdAsync(_steamUserId64);
             if (user == null)
             {
                 await CreateUser(authenticateResult, _steamUserId64);
+            }
+            else
+            {
+                var suser = await _userManager.FindBySteamIdAsync(_steamUserId64);
+                await _signInManager.SignInAsync(suser, isPersistent: false);
             }
         }
 

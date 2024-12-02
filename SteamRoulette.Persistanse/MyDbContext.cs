@@ -9,6 +9,8 @@ namespace SteamRoulette.Persistanse
     {
         public MyDbContext(DbContextOptions options) : base(options)
         {
+            //  base.Database.EnsureDeleted();
+            base.Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

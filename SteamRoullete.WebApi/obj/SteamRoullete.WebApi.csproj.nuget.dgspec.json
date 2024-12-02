@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj": {}
+    "I:\\Dotnet\\SteamRoulette\\SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Domain\\SteamRoulette.Domain.csproj": {
+    "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Domain\\SteamRoulette.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Domain\\SteamRoulette.Domain.csproj",
+        "projectUniqueName": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Domain\\SteamRoulette.Domain.csproj",
         "projectName": "SteamRoulette.Domain",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Domain\\SteamRoulette.Domain.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Domain\\obj\\",
+        "projectPath": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Domain\\SteamRoulette.Domain.csproj",
+        "packagesPath": "C:\\Users\\vladi\\.nuget\\packages\\",
+        "outputPath": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vladi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,8 +43,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -48,7 +53,7 @@
           "dependencies": {
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
-              "version": "[8.0.11, )"
+              "version": "[9.0.0, )"
             }
           },
           "imports": [
@@ -67,25 +72,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj": {
+    "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj",
+        "projectUniqueName": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj",
         "projectName": "SteamRoulette.Persistanse",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Persistanse\\obj\\",
+        "projectPath": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj",
+        "packagesPath": "C:\\Users\\vladi\\.nuget\\packages\\",
+        "outputPath": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Persistanse\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vladi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -93,11 +102,11 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Domain\\SteamRoulette.Domain.csproj": {
-                "projectPath": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Domain\\SteamRoulette.Domain.csproj"
+              "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Domain\\SteamRoulette.Domain.csproj": {
+                "projectPath": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Domain\\SteamRoulette.Domain.csproj"
               }
             }
           }
@@ -110,16 +119,21 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.11, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -127,7 +141,7 @@
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
-              "version": "[8.0.11, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
@@ -150,21 +164,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.ServiceDefaults\\SteamRoulette.ServiceDefaults.csproj": {
+    "I:\\Dotnet\\SteamRoulette\\SteamRoulette.ServiceDefaults\\SteamRoulette.ServiceDefaults.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.ServiceDefaults\\SteamRoulette.ServiceDefaults.csproj",
+        "projectUniqueName": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.ServiceDefaults\\SteamRoulette.ServiceDefaults.csproj",
         "projectName": "SteamRoulette.ServiceDefaults",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.ServiceDefaults\\SteamRoulette.ServiceDefaults.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.ServiceDefaults\\obj\\",
+        "projectPath": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.ServiceDefaults\\SteamRoulette.ServiceDefaults.csproj",
+        "packagesPath": "C:\\Users\\vladi\\.nuget\\packages\\",
+        "outputPath": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.ServiceDefaults\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vladi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -189,8 +207,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -198,31 +217,31 @@
           "dependencies": {
             "Microsoft.Extensions.Http.Resilience": {
               "target": "Package",
-              "version": "[8.3.0, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.Extensions.ServiceDiscovery": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[9.0.0, )"
             },
             "OpenTelemetry.Exporter.OpenTelemetryProtocol": {
               "target": "Package",
-              "version": "[1.8.1, )"
+              "version": "[1.10.0, )"
             },
             "OpenTelemetry.Extensions.Hosting": {
               "target": "Package",
-              "version": "[1.8.1, )"
+              "version": "[1.10.0, )"
             },
             "OpenTelemetry.Instrumentation.AspNetCore": {
               "target": "Package",
-              "version": "[1.8.1, )"
+              "version": "[1.9.0, )"
             },
             "OpenTelemetry.Instrumentation.Http": {
               "target": "Package",
-              "version": "[1.8.1, )"
+              "version": "[1.10.0, )"
             },
             "OpenTelemetry.Instrumentation.Runtime": {
               "target": "Package",
-              "version": "[1.8.0, )"
+              "version": "[1.9.0, )"
             }
           },
           "imports": [
@@ -244,25 +263,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj": {
+    "I:\\Dotnet\\SteamRoulette\\SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj",
+        "projectUniqueName": "I:\\Dotnet\\SteamRoulette\\SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj",
         "projectName": "SteamRoullete.WebApi",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoullete.WebApi\\obj\\",
+        "projectPath": "I:\\Dotnet\\SteamRoulette\\SteamRoullete.WebApi\\SteamRoullete.WebApi.csproj",
+        "packagesPath": "C:\\Users\\vladi\\.nuget\\packages\\",
+        "outputPath": "I:\\Dotnet\\SteamRoulette\\SteamRoullete.WebApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vladi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -270,14 +293,14 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj": {
-                "projectPath": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj"
+              "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj": {
+                "projectPath": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.Persistanse\\SteamRoulette.Persistanse.csproj"
               },
-              "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.ServiceDefaults\\SteamRoulette.ServiceDefaults.csproj": {
-                "projectPath": "C:\\Users\\Admin\\source\\repos\\SteamRoulette\\SteamRoulette.ServiceDefaults\\SteamRoulette.ServiceDefaults.csproj"
+              "I:\\Dotnet\\SteamRoulette\\SteamRoulette.ServiceDefaults\\SteamRoulette.ServiceDefaults.csproj": {
+                "projectPath": "I:\\Dotnet\\SteamRoulette\\SteamRoulette.ServiceDefaults\\SteamRoulette.ServiceDefaults.csproj"
               }
             }
           }
@@ -290,20 +313,21 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "dependencies": {
             "AspNet.Security.OpenId.Steam": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.11, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -311,7 +335,7 @@
             },
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
-              "version": "[8.0.11, )"
+              "version": "[9.0.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -319,15 +343,15 @@
             },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.1.0, )"
             },
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.1.0, )"
             },
             "Swashbuckle.AspNetCore.SwaggerUI": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.1.0, )"
             }
           },
           "imports": [
@@ -349,7 +373,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

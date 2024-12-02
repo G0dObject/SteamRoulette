@@ -5,7 +5,14 @@ yarn-error.log
 package-lock.json
 yarn.lock
 
+#idea
+/.idea
+
+
 # Visual Studio related
+*./vs
+/vs
+/.vs
 *.suo
 *.user
 *.userosscache
