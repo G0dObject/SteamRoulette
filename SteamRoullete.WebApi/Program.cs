@@ -30,6 +30,11 @@ internal class Program
         .AddEntityFrameworkStores<MyDbContext>()
         .AddDefaultTokenProviders();
 
+        // DOTO ADD jwt token for auth result
+        // DOTO ADD SignalR
+        // DOTO ADD Round Class
+        // DOTO ADD Round to database
+        // DOTO ADD GameClass
 
 
         builder.Services.AddCors(opt =>

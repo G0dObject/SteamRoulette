@@ -10,6 +10,9 @@ yarn.lock
 
 
 # Visual Studio related
+/.vs/
+**/[Oo]bj/
+**/[Bb]in/
 *./vs
 /vs
 /.vs
