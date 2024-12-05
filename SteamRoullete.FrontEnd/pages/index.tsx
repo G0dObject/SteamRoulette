@@ -5,7 +5,7 @@ import StatusBar from "../components/StatusBar";
 import NumberInput from "../components/NumberInput";
 import MultiplierGraph from "../components/MultiplierGraph";
 import CurrentRound from "../components/CurrentRound";
-import SpeedSlider from "../components/SpeedSlider";
+import UserInventory from "../components/UserInventory";
 import Ranking from "../components/Ranking";
 import Chat from "../components/Chat";
 import AnimatedNumber from "../components/AnimatedNumber";
@@ -13,7 +13,6 @@ import YouLose from "../components/YouLose";
 
 import styles from "../styles/Root.module.scss";
 import authStore from "../src/store/AuthStore";
-import UserInventory from "../components/SpeedSlider";
 
 interface Player {
   name: string;
