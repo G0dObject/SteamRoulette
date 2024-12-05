@@ -1,11 +1,11 @@
 // src/store/AuthStore.ts
-import { get, makeAutoObservable } from "mobx";
+import { makeAutoObservable } from "mobx";
 import { jwtDecode } from "jwt-decode";
 
 class AuthStore {
-  token: string = "";
-  img: string = "";
-  name: string = "";
+  token: string | null = null;
+  img: string | null = null;
+  name: string | null = null;
 
   constructor() {
     makeAutoObservable(this);
@@ -46,9 +46,9 @@ class AuthStore {
     const token = localStorage.getItem("authToken");
     if (token) {
       this.token = token;
+      this.setName();
+      this.setImg();
     }
-    this.setName();
-    this.setImg();
   }
 }
 
