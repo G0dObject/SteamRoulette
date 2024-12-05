@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from "react";
 import AnimatedNumber from "./AnimatedNumber";
+import authStore from "../src/store/AuthStore";
 
 interface StatusBarProps {
   loggedIn: boolean;
   userName?: string;
   points?: number;
+  userimg?: string;
 }
 
 var url = import.meta.env.VITE_API_URL;
 var frontport = import.meta.env.VITE_CURRENT_PORT;
 
 const redirect = () => {
-  location.href = `${url}/api/auth/Login?ReturnUrl=http://localhost:${frontport}`;
+  location.href = `${url}/api/auth/Login?ReturnUrl=http://localhost:${frontport}/Authorization/token?`;
 };
 
 const StatusBar: React.FC<StatusBarProps> = ({
   loggedIn,
   userName,
   points,
+  userimg,
 }) => {
   const [time, setTime] = useState<string>("");
 
@@ -27,11 +30,7 @@ const StatusBar: React.FC<StatusBarProps> = ({
         className="w-full text-center h-full border-slate-700 border flex justify-left items-center bg-gradient-to-r from-gray-900 to-slate-800  rounded-lg relative"
         onClick={redirect}
       >
-        <img
-          width="33px"
-          className="mx-4 "
-          src="../public/SteamLogo.png"
-        ></img>
+        <img width="33px" className="mx-4 " src="../public/SteamLogo.png"></img>
 
         <h3 className="flex text-xl">Login with steam</h3>
       </button>
@@ -40,26 +39,16 @@ const StatusBar: React.FC<StatusBarProps> = ({
   const login = () => {
     return (
       <>
-        <div className="border-slate-700 border flex justify-center items-center bg-gradient-to-r from-gray-900 to-slate-800 px-2 py-4 rounded-lg relative"></div>
-        <span className="absolute start-4">
-          <svg
-            className="w-[38px] h-[38px] text-gray-800 dark:text-white"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke="currentColor"
-              strokeWidth="2"
-              d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-            />
-          </svg>
-        </span>
-        <span className="text-2xl font-bold">&nbsp;{userName}&nbsp;</span>
-        <div></div>
+        <div>
+          <div className="border-slate-700 border flex justify-center items-center bg-gradient-to-r from-gray-900 to-slate-800 px-2 py-4 rounded-lg relative">
+            <img
+              src={userimg}
+              className="w-[34px] h-[34px] rounded-lg relative"
+            ></img>
+            <span className="text-2xl font-bold">&nbsp;{userName}&nbsp;</span>
+          </div>
+          <span className="absolute start-4"></span>
+        </div>
       </>
     );
   };
