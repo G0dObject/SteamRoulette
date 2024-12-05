@@ -4,7 +4,7 @@ import WelcomeLogin from "../components/WelcomeLogin";
 import StatusBar from "../components/StatusBar";
 import NumberInput from "../components/NumberInput";
 import MultiplierGraph from "../components/MultiplierGraph";
-import CurrentRound from "../components/CurrentRound";
+
 import UserInventory from "../components/UserInventory";
 import Ranking from "../components/Ranking";
 import Chat from "../components/Chat";
@@ -201,7 +201,7 @@ const Home: React.FC = () => {
               >
                 Start
               </button>
-              <CurrentRound players={round} />
+
               <div>
                 <UserInventory />
               </div>
