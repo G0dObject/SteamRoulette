@@ -7,6 +7,8 @@ export default defineConfig({
   define: {
     'import.meta.env.VITE_API_URL': JSON.stringify(process.env.services__WebApi__https__0),
   },
-  server:{port: process.env.VITE_PORT},
+ server:{port: process.env.VITE_PORT},
+  // server:{port: 5000},
+
   plugins: [react()]
 })

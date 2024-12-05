@@ -1,22 +1,19 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from "react";
 
+import WelcomeLogin from "../components/WelcomeLogin";
+import StatusBar from "../components/StatusBar";
+import NumberInput from "../components/NumberInput";
+import MultiplierGraph from "../components/MultiplierGraph";
+import CurrentRound from "../components/CurrentRound";
+import SpeedSlider from "../components/SpeedSlider";
+import Ranking from "../components/Ranking";
+import Chat from "../components/Chat";
+import AnimatedNumber from "../components/AnimatedNumber";
+import YouLose from "../components/YouLose";
 
-import WelcomeLogin from '../components/WelcomeLogin';
-import StatusBar from '../components/StatusBar';
-import NumberInput from '../components/NumberInput';
-import MultiplierGraph from '../components/MultiplierGraph';
-import CurrentRound from '../components/CurrentRound';
-import SpeedSlider from '../components/SpeedSlider';
-import Ranking from '../components/Ranking';
-import Chat from '../components/Chat';
-import AnimatedNumber from '../components/AnimatedNumber';
-import YouLose from '../components/YouLose';
-
-
-
-import styles from '../styles/Root.module.scss';
-
-
+import styles from "../styles/Root.module.scss";
+import authStore from "../src/store/AuthStore";
+import UserInventory from "../components/SpeedSlider";
 
 interface Player {
   name: string;
@@ -30,17 +27,17 @@ interface GraphDataPoints {
 }
 
 const defaultData: GraphDataPoints[] = [
-  { name: '0' },
-  { name: '1' },
-  { name: '2' },
-  { name: '3' },
-  { name: '4' },
-  { name: '5' },
-  { name: '6' },
-  { name: '7' },
-  { name: '8' },
-  { name: '9' },
-  { name: '10' },
+  { name: "0" },
+  { name: "1" },
+  { name: "2" },
+  { name: "3" },
+  { name: "4" },
+  { name: "5" },
+  { name: "6" },
+  { name: "7" },
+  { name: "8" },
+  { name: "9" },
+  { name: "10" },
 ];
 
 // const roundDefault: Player[] = [
@@ -54,25 +51,36 @@ const defaultData: GraphDataPoints[] = [
 const generateGraphData = (): GraphDataPoints[] => {
   const data: GraphDataPoints[] = [];
   const lastResult = parseFloat((Math.random() * 11).toFixed(2)); // Random value for the last round
-  data.push({ name: '10', multiplier: lastResult });
+  data.push({ name: "10", multiplier: lastResult });
 
   // Generate the initial rounds based on the random value of the last round
   let currentResult = lastResult;
   for (let i = 9; i >= 0; i--) {
     currentResult *= 0.85; // Decrement factor for a downward curve
-    data.push({ name: `${i}`, multiplier: parseFloat(currentResult.toFixed(2)) });
+    data.push({
+      name: `${i}`,
+      multiplier: parseFloat(currentResult.toFixed(2)),
+    });
   }
 
   return data.reverse(); // Reverse the data array to start with the first round
 };
 
-const getRandomValueFromMultiples = (min: number, max: number, step: number) => {
-  const multiples = Array.from({ length: Math.floor((max - min) / step) + 1 }, (_, i) => min + i * step);
+const getRandomValueFromMultiples = (
+  min: number,
+  max: number,
+  step: number
+) => {
+  const multiples = Array.from(
+    { length: Math.floor((max - min) / step) + 1 },
+    (_, i) => min + i * step
+  );
   return multiples[Math.floor(Math.random() * multiples.length)];
 };
 
 const randomPoints = () => getRandomValueFromMultiples(50, 1000, 25);
-const randomMultipliers = () => parseFloat(getRandomValueFromMultiples(1.0, 10, 0.25).toFixed(2));
+const randomMultipliers = () =>
+  parseFloat(getRandomValueFromMultiples(1.0, 10, 0.25).toFixed(2));
 
 const Home: React.FC = () => {
   const [points, setPoints] = useState<number>(50); // Min and default value is 50, increment by 25
@@ -85,73 +93,71 @@ const Home: React.FC = () => {
   const [round, setRound] = useState<Player[]>([]);
   const [ranking, setRanking] = useState<Player[]>([]);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [userName, setUserName] = useState<string>('');
+  const [userName, setUserName] = useState<string>(authStore.name);
+  const [userImg, setUserImg] = useState<string>(authStore.img);
   const [userPoints, setUserPoints] = useState<number>(1000); // Example points
   const [userWon, setUserWon] = useState<boolean>();
 
   useEffect(() => {
-    if (isLoggedIn && !localStorage.getItem('demoMessagesSent')) {
-     
-      localStorage.setItem('demoMessagesSent', 'true');
+    checkauth();
+  }, []);
+  // useEffect(() => {
+  //   if (isLoggedIn && !localStorage.getItem("token")) {
+  //     localStorage.setItem("token", authStore.token as string);
+  //   }
+  // }, [isLoggedIn]);
+
+  const checkauth = () => {
+    if (localStorage.getItem("authToken")) {
+      setIsLoggedIn(true);
     }
-  }, [isLoggedIn]);
-
-  const handleLoginSuccess = (name: string) => {
-    setIsLoggedIn(true);
-    setUserName(name);
   };
-
-   
 
   const startGame = useCallback(() => {
     console.log("startGame");
-    setUserPoints(prevPoints => prevPoints - points);
+    setUserPoints((prevPoints) => prevPoints - points);
     setData(defaultData);
     setResult(0);
 
     setTimeout(() => {
-      const newData = generateGraphData();      
-      setData(newData); 
+      const newData = generateGraphData();
+      setData(newData);
       const newResult = newData[10]?.multiplier ?? 0;
       setResult(newResult);
 
-      setChartKey(prevKey => prevKey + 1); 
+      setChartKey((prevKey) => prevKey + 1);
       const newRound = [
-        { name: 'You', points, multiplier },
-        ...['CPU 1', 'CPU 2', 'CPU 3', 'CPU 4'].map(cpu => ({
+        { name: "You", points, multiplier },
+        ...["CPU 1", "CPU 2", "CPU 3", "CPU 4"].map((cpu) => ({
           name: cpu,
           points: randomPoints(),
-          multiplier: randomMultipliers()
-        }))
-      ].map(player => ({
+          multiplier: randomMultipliers(),
+        })),
+      ].map((player) => ({
         ...player,
-        points: player.points * player.multiplier
+        points: player.points * player.multiplier,
       }));
 
       setRound(newRound);
-      
+
       setTimeout(() => {
         //Check if user lower multiplier to the result
-        if(newResult > multiplier){
-          setUserPoints(prevPoints => prevPoints + (points * multiplier));
+        if (newResult > multiplier) {
+          setUserPoints((prevPoints) => prevPoints + points * multiplier);
           setTimeout(() => {
-            setUserWon(true)
-            setTimeout(() => {
-              
-            }, 5000);
+            setUserWon(true);
+            setTimeout(() => {}, 5000);
           }, 2000);
-        }else{
+        } else {
           setTimeout(() => {
-            setUserWon(false)
-            setTimeout(() => {
-              
-            }, 5000);
+            setUserWon(false);
+            setTimeout(() => {}, 5000);
           }, 2000);
         }
 
-        setRanking(prevRanking => {
-          const updatedRanking = prevRanking.map(player => {
-            const roundPlayer = newRound.find(p => p.name === player.name);
+        setRanking((prevRanking) => {
+          const updatedRanking = prevRanking.map((player) => {
+            const roundPlayer = newRound.find((p) => p.name === player.name);
             return roundPlayer
               ? { ...player, points: player.points + roundPlayer.points }
               : player;
@@ -167,9 +173,7 @@ const Home: React.FC = () => {
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-12 gap-6">
           {!isLoggedIn ? (
-            <div className="col-span-4">
-              <WelcomeLogin onLoginSuccess={handleLoginSuccess} />
-            </div>
+            <div className="col-span-4">"HI babby"</div>
           ) : (
             <div className="col-span-4">
               <div className="styles.gameHeader">
@@ -192,20 +196,32 @@ const Home: React.FC = () => {
                   />
                 </div>
               </div>
-              <button onClick={startGame} className="text-white font-bold py-2 px-4 rounded bg-gradient-to-r from-pink-500 to-red-500 w-full my-4">
+              <button
+                onClick={startGame}
+                className="text-white font-bold py-2 px-4 rounded bg-gradient-to-r from-pink-500 to-red-500 w-full my-4"
+              >
                 Start
               </button>
               <CurrentRound players={round} />
               <div>
-                <SpeedSlider speed={speed} setSpeed={setSpeed} setSpeedMs={setSpeedMs} />
+                <UserInventory />
               </div>
             </div>
           )}
           <div className="col-span-8 relative">
-          {userWon != null ? <YouLose userWon={userWon} /> : null}
-            <StatusBar loggedIn={isLoggedIn} userName={userName} points={userPoints} />
+            {userWon != null ? <YouLose userWon={userWon} /> : null}
+            <StatusBar
+              loggedIn={isLoggedIn}
+              userName={userName}
+              points={userPoints}
+              userimg={userImg}
+            />
             <div className={styles.gameBoard}>
-              <AnimatedNumber value={result} speedMs={speedMs} className={styles.animatedNumber} />
+              <AnimatedNumber
+                value={result}
+                speedMs={speedMs}
+                className={styles.animatedNumber}
+              />
               <MultiplierGraph key={chartKey} data={data} speedMs={speedMs} />
             </div>
           </div>
@@ -213,8 +229,12 @@ const Home: React.FC = () => {
       </div>
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-6"><Ranking players={ranking} /></div>
-          <div className="col-span-6"><Chat userName={userName} /></div>
+          <div className="col-span-6">
+            <Ranking players={ranking} />
+          </div>
+          <div className="col-span-6">
+            <Chat userName={userName} />
+          </div>
         </div>
       </div>
     </div>
