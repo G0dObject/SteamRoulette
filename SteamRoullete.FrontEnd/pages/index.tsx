@@ -39,14 +39,6 @@ const defaultData: GraphDataPoints[] = [
   { name: "10" },
 ];
 
-// const roundDefault: Player[] = [
-//   { name: 'You', points: 0, multiplier: 0 },
-//   { name: 'CPU 1', points: 0, multiplier: 0 },
-//   { name: 'CPU 2', points: 0, multiplier: 0 },
-//   { name: 'CPU 3', points: 0, multiplier: 0 },
-//   { name: 'CPU 4', points: 0, multiplier: 0 },
-// ];
-
 const generateGraphData = (): GraphDataPoints[] => {
   const data: GraphDataPoints[] = [];
   const lastResult = parseFloat((Math.random() * 11).toFixed(2)); // Random value for the last round
@@ -92,19 +84,16 @@ const Home: React.FC = () => {
   const [round, setRound] = useState<Player[]>([]);
   const [ranking, setRanking] = useState<Player[]>([]);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [userName, setUserName] = useState<string>(authStore.name);
-  const [userImg, setUserImg] = useState<string>(authStore.img);
+  const [userName, setUserName] = useState<string | null>("");
+  const [userImg, setUserImg] = useState<string | null>("");
   const [userPoints, setUserPoints] = useState<number>(1000); // Example points
   const [userWon, setUserWon] = useState<boolean>();
 
   useEffect(() => {
+    console.log("hello from home");
+
     checkauth();
   }, []);
-  // useEffect(() => {
-  //   if (isLoggedIn && !localStorage.getItem("token")) {
-  //     localStorage.setItem("token", authStore.token as string);
-  //   }
-  // }, [isLoggedIn]);
 
   const checkauth = () => {
     if (localStorage.getItem("authToken")) {
@@ -172,7 +161,7 @@ const Home: React.FC = () => {
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-12 gap-6">
           {!isLoggedIn ? (
-            <div className="col-span-4">"HI babby"</div>
+            <div className="col-span-4">Auth with steam for game</div>
           ) : (
             <div className="col-span-4">
               <div className="styles.gameHeader">

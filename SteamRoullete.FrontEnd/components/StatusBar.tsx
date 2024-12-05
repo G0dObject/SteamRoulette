@@ -4,9 +4,9 @@ import authStore from "../src/store/AuthStore";
 
 interface StatusBarProps {
   loggedIn: boolean;
-  userName?: string;
+  userName: string | null;
   points?: number;
-  userimg?: string;
+  userimg: string | null;
 }
 
 var url = import.meta.env.VITE_API_URL;
@@ -42,7 +42,7 @@ const StatusBar: React.FC<StatusBarProps> = ({
         <div>
           <div className="border-slate-700 border flex justify-center items-center bg-gradient-to-r from-gray-900 to-slate-800 px-2 py-4 rounded-lg relative">
             <img
-              src={userimg}
+              src={userimg ? userimg : ""}
               className="w-[34px] h-[34px] rounded-lg relative"
             ></img>
             <span className="text-2xl font-bold">&nbsp;{userName}&nbsp;</span>

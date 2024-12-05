@@ -1,9 +1,9 @@
-import { FC, useState, useEffect, useRef } from 'react';
+import { FC, useState, useEffect, useRef } from "react";
 
-import classNames from 'classnames';
+import classNames from "classnames";
 
 interface ChatProps {
-  userName: string;
+  userName: string | null;
 }
 
 interface Message {
@@ -11,32 +11,29 @@ interface Message {
   text: string;
 }
 
-
 const colorPalette = [
-  'text-red-500',
-  'text-pink-500',
-  'text-purple-500',
-  'text-green-500',
-  'text-blue-500',
-  'text-yellow-500',
-  'text-indigo-500',
-  'text-teal-500',
+  "text-red-500",
+  "text-pink-500",
+  "text-purple-500",
+  "text-green-500",
+  "text-blue-500",
+  "text-yellow-500",
+  "text-indigo-500",
+  "text-teal-500",
 ];
 
 const Chat: FC<ChatProps> = ({ userName }) => {
   const [messages, setMessages] = useState<Message[]>([]);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [userColors, setUserColors] = useState<{ [key: string]: string }>({});
   const chatContainerRef = useRef<HTMLUListElement>(null);
 
-  useEffect(() => {
-   
-
-  }, []);
+  useEffect(() => {}, []);
 
   useEffect(() => {
     if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
     }
   }, [messages]);
 
@@ -46,7 +43,8 @@ const Chat: FC<ChatProps> = ({ userName }) => {
         return prevUserColors;
       }
 
-      const newColor = colorPalette[Object.keys(prevUserColors).length % colorPalette.length];
+      const newColor =
+        colorPalette[Object.keys(prevUserColors).length % colorPalette.length];
       return { ...prevUserColors, [user]: newColor };
     });
   };
@@ -54,25 +52,46 @@ const Chat: FC<ChatProps> = ({ userName }) => {
   const handleSend = () => {
     if (message.trim()) {
       const newMessage = { user: userName, text: message };
-     
-      setMessage('');
+
+      setMessage("");
     }
   };
 
   return (
-    <div className='mt-6'>
+    <div className="mt-6">
       <div className="flex items-center mb-2">
-        <svg className="mr-2 w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 17h6l3 3v-3h2V9h-2M4 4h11v8H9l-3 3v-3H4V4Z"/>
+        <svg
+          className="mr-2 w-[20px] h-[20px] text-gray-800 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M9 17h6l3 3v-3h2V9h-2M4 4h11v8H9l-3 3v-3H4V4Z"
+          />
         </svg>
         <h2 className="font-bold text-xl">Chat</h2>
       </div>
       <div className="bg-gray-800 rounded-lg">
-        <ul ref={chatContainerRef} className='py-2 px-2 h-36 max-h-36 overflow-auto flex flex-col '>
+        <ul
+          ref={chatContainerRef}
+          className="py-2 px-2 h-36 max-h-36 overflow-auto flex flex-col "
+        >
           {messages.map((msg, index) => (
             <li key={index}>
-              <dl className='flex m-1'>
-                <dt className={classNames('mr-2 font-bold', userColors[msg.user])} >{msg.user}: </dt>
+              <dl className="flex m-1">
+                <dt
+                  className={classNames("mr-2 font-bold", userColors[msg.user])}
+                >
+                  {msg.user}:{" "}
+                </dt>
                 <dd>{msg.text}</dd>
               </dl>
             </li>
@@ -87,13 +106,17 @@ const Chat: FC<ChatProps> = ({ userName }) => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyPress={(e) => {
-                if (e.key === 'Enter') {
+                if (e.key === "Enter") {
                   e.preventDefault();
                   handleSend();
                 }
               }}
             />
-            <button disabled={!userName} className="inline-flex justify-center p-2 text-white cursor-pointer py-2 px-4 rounded bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold disabled:opacity-50" onClick={handleSend}>
+            <button
+              disabled={!userName}
+              className="inline-flex justify-center p-2 text-white cursor-pointer py-2 px-4 rounded bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold disabled:opacity-50"
+              onClick={handleSend}
+            >
               <span className="">Send</span>
             </button>
           </div>
