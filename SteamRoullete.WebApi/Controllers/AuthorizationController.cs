@@ -3,26 +3,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SteamRoulette.Domain;
 using SteamRoullete.WebApi.Services;
+using System.Security.Claims;
 
 namespace SteamRoullete.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthController(IConfiguration configuration, UserManager<SteamUser> userManager, SignInManager<SteamUser> signInManager, UserService userService, JwtTokenGenerator jwtTokenGenerator) : ControllerBase
     {
-        private readonly IConfiguration _configuration;
-        private readonly UserManager<SteamUser> _userManager;
-        private readonly SignInManager<SteamUser> _signInManager;
-        private readonly UserService _userService;
-
-        public AuthController(IConfiguration configuration, UserManager<SteamUser> userManager, SignInManager<SteamUser> signInManager, UserService userService)
-        {
-            _userService = userService;
-            _configuration = configuration;
-            _userManager = userManager;
-            _signInManager = signInManager;
-        }
-
         [HttpGet("Login")]
         public IActionResult Login([FromQuery] string returnUrl)
         {
@@ -42,14 +30,22 @@ namespace SteamRoullete.WebApi.Controllers
 
             if (authenticateResult.Succeeded)
             {
-                await _userService.Authorize(authenticateResult);
+                var user = await userService.Authorize(authenticateResult);
+
+                List<Claim> authClaims = new()
+                {
+                    new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim(ClaimTypes.NameIdentifier, user.SteamUserId.ToString()),
+                    new Claim(ClaimTypes.UserData, user.ImgUrl)
+
+                };
+                var token = jwtTokenGenerator.GenerateJwtToken(authClaims);
+                return Redirect(returnUrl + "token=" + token);
             }
             else
             {
                 return StatusCode(401);
             }
-
-            return Redirect(returnUrl);
         }
     }
 }

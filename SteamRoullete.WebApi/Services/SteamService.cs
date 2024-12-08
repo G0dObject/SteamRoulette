@@ -1,6 +1,7 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json.Linq;
+using SteamRoulette.Domain;
+using SteamRoulette.Persistanse;
 
 namespace SteamRoullete.WebApi.Services
 {
@@ -8,11 +9,15 @@ namespace SteamRoullete.WebApi.Services
     {
         private readonly HttpClient _httpClient;
         private readonly IConfiguration _configuration;
+        private readonly SteamDbContext _steamDbContext;
+        private readonly UserManager<SteamUser> _userManager;
 
-        public SteamService(HttpClient httpClient, IConfiguration configuration)
+        public SteamService(HttpClient httpClient, IConfiguration configuration, SteamDbContext steamDbContext, UserManager<SteamUser> userManager)
         {
             _httpClient = httpClient;
             _configuration = configuration;
+            _steamDbContext = steamDbContext;
+            _userManager = userManager;
         }
 
         public async Task<string> GetProfileImageUrlAsync(string steamId64)
@@ -25,5 +30,11 @@ namespace SteamRoullete.WebApi.Services
 
             return avatarFull;
         }
+
+        public async Task<SteamUser> GetSteamUserBySteamId(string steamId)
+        {
+            return await _userManager.FindBySteamIdAsync(steamId);
+        }
+
     }
 }

@@ -8,6 +8,8 @@
 
   <ItemGroup>
 	  <PackageReference Include="AspNet.Security.OpenId.Steam" Version="9.0.0" />
+	  <PackageReference Include="Microsoft.AspNet.SignalR.Core" Version="2.4.3" />
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
 	  <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.1.34" />
 	  <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.39" />
 

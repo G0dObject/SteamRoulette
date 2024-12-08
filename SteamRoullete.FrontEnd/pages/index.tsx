@@ -74,8 +74,7 @@ const randomMultipliers = () =>
   parseFloat(getRandomValueFromMultiples(1.0, 10, 0.25).toFixed(2));
 
 const Home: React.FC = () => {
-  const [points, setPoints] = useState<number>(50); // Min and default value is 50, increment by 25
-  const [multiplier, setMultiplier] = useState<number>(1.0); // Min and default value is 1.00, increment by 0.25
+  const [multiplier, setMultiplier] = useState<number>(2.0); // Min and default value is 1.00, increment by 0.25
   const [speed, setSpeed] = useState<number>(1);
   const [speedMs, setSpeedMs] = useState<number>(5000);
   const [data, setData] = useState<GraphDataPoints[]>(defaultData);
@@ -90,71 +89,17 @@ const Home: React.FC = () => {
   const [userWon, setUserWon] = useState<boolean>();
 
   useEffect(() => {
-    console.log("hello from home");
-
     checkauth();
   }, []);
 
   const checkauth = () => {
     if (localStorage.getItem("authToken")) {
       setIsLoggedIn(true);
+      //WARNING
+      setUserName(authStore.name);
+      setUserImg(authStore.img);
     }
   };
-
-  const startGame = useCallback(() => {
-    console.log("startGame");
-    setUserPoints((prevPoints) => prevPoints - points);
-    setData(defaultData);
-    setResult(0);
-
-    setTimeout(() => {
-      const newData = generateGraphData();
-      setData(newData);
-      const newResult = newData[10]?.multiplier ?? 0;
-      setResult(newResult);
-
-      setChartKey((prevKey) => prevKey + 1);
-      const newRound = [
-        { name: "You", points, multiplier },
-        ...["CPU 1", "CPU 2", "CPU 3", "CPU 4"].map((cpu) => ({
-          name: cpu,
-          points: randomPoints(),
-          multiplier: randomMultipliers(),
-        })),
-      ].map((player) => ({
-        ...player,
-        points: player.points * player.multiplier,
-      }));
-
-      setRound(newRound);
-
-      setTimeout(() => {
-        //Check if user lower multiplier to the result
-        if (newResult > multiplier) {
-          setUserPoints((prevPoints) => prevPoints + points * multiplier);
-          setTimeout(() => {
-            setUserWon(true);
-            setTimeout(() => {}, 5000);
-          }, 2000);
-        } else {
-          setTimeout(() => {
-            setUserWon(false);
-            setTimeout(() => {}, 5000);
-          }, 2000);
-        }
-
-        setRanking((prevRanking) => {
-          const updatedRanking = prevRanking.map((player) => {
-            const roundPlayer = newRound.find((p) => p.name === player.name);
-            return roundPlayer
-              ? { ...player, points: player.points + roundPlayer.points }
-              : player;
-          });
-          return updatedRanking.sort((a, b) => b.points - a.points);
-        });
-      }, speedMs);
-    }, 1000);
-  }, [result, points, multiplier, speedMs]);
 
   return (
     <div className="py-10 px-5">
@@ -165,35 +110,16 @@ const Home: React.FC = () => {
           ) : (
             <div className="col-span-4">
               <div className="styles.gameHeader">
-                <div className="flex justify-center items-center columns-6 gap-3">
-                  <NumberInput
-                    label="Points"
-                    value={points}
-                    min={50}
-                    step={25}
-                    max={userPoints}
-                    onChange={setPoints}
-                  />
-                  <NumberInput
-                    label="Multiplier"
-                    value={multiplier}
-                    min={1.0}
-                    step={0.25}
-                    max={10}
-                    onChange={setMultiplier}
-                  />
-                </div>
+                <div className="flex justify-center items-center columns-6 gap-3"></div>
               </div>
               <button
-                onClick={startGame}
-                className="text-white font-bold py-2 px-4 rounded bg-gradient-to-r from-pink-500 to-red-500 w-full my-4"
+                onClick={() => {}}
+                className="text-white font-bold py-4  mb-4 px-4 rounded bg-gradient-to-r from-pink-500 to-red-500 w-full "
               >
-                Start
+                <div className="text-2xl font-bold">Start</div>
               </button>
 
-              <div>
-                <UserInventory />
-              </div>
+              <UserInventory />
             </div>
           )}
           <div className="col-span-8 relative">
@@ -217,12 +143,8 @@ const Home: React.FC = () => {
       </div>
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-6">
-            <Ranking players={ranking} />
-          </div>
-          <div className="col-span-6">
-            <Chat userName={userName} />
-          </div>
+          <div className="col-span-6"></div>
+          <div className="col-span-6"></div>
         </div>
       </div>
     </div>

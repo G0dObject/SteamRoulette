@@ -8,7 +8,6 @@ var cache = builder.AddRedis("cache");
 
 var webapi = builder.AddProject<Projects.SteamRoullete_WebApi>("WebApi");
 
-
 var frontend = builder.AddNpmApp("frontend", "../SteamRoullete.FrontEnd", "dev")
     .WithReference(webapi)
     .WithReference(cache)

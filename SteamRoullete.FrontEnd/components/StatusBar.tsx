@@ -37,6 +37,13 @@ const StatusBar: React.FC<StatusBarProps> = ({
     );
   };
   const login = () => {
+    console.log(userimg);
+
+    const logout = () => {
+      authStore.clearToken();
+      location.href = "/";
+    };
+
     return (
       <>
         <div>
@@ -46,8 +53,12 @@ const StatusBar: React.FC<StatusBarProps> = ({
               className="w-[34px] h-[34px] rounded-lg relative"
             ></img>
             <span className="text-2xl font-bold">&nbsp;{userName}&nbsp;</span>
+            <div className="sepparator w-px h-6 bg-gray-400 mx-4"></div>
+            <button onClick={logout} className="font-bold text-sl">
+              ВЫЙТИ
+            </button>
           </div>
-          <span className="absolute start-4"></span>
+          <span className="absolute start-4 "></span>
         </div>
       </>
     );

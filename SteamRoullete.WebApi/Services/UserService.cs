@@ -20,24 +20,25 @@ namespace SteamRoullete.WebApi.Services
             _steamService = steamService;
         }
 
-        public async Task Authorize(AuthenticateResult authenticateResult)
+        public async Task<SteamUser> Authorize(AuthenticateResult authenticateResult)
         {
             var _steamUserIdUrl = authenticateResult.Principal.Claims.First(f => f.Type == ClaimTypes.NameIdentifier).Value;
             var _steamUserId64 = _steamUserIdUrl.Split('/').Last();
 
             var user = await _userManager.FindBySteamIdAsync(_steamUserId64);
+
             if (user == null)
             {
-                await CreateUser(authenticateResult, _steamUserId64);
+                return await CreateUser(authenticateResult, _steamUserId64);
             }
             else
             {
-                var suser = await _userManager.FindBySteamIdAsync(_steamUserId64);
-                await _signInManager.SignInAsync(suser, isPersistent: false);
+                var steamUser = await _userManager.FindBySteamIdAsync(_steamUserId64);
+                await SignInUser(steamUser);
+                return steamUser;
             }
         }
-
-        private async Task CreateUser(AuthenticateResult authenticateResult, string steamId64)
+        private async Task<SteamUser> CreateUser(AuthenticateResult authenticateResult, string steamId64)
         {
             var _steamUsername = authenticateResult.Principal.FindFirstValue(ClaimTypes.Name);
 
@@ -57,6 +58,11 @@ namespace SteamRoullete.WebApi.Services
             }
 
             await _signInManager.SignInAsync(newUser, isPersistent: false);
+            return newUser;
+        }
+        private async Task SignInUser(SteamUser steamUser)
+        {
+            await _signInManager.SignInAsync(steamUser, isPersistent: false);
         }
     }
 }

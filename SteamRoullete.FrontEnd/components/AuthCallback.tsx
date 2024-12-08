@@ -12,7 +12,6 @@ const AuthCallback: React.FC = () => {
   useEffect(() => {
     if (token) {
       authStore.setToken(token);
-      console.log(authStore.token);
 
       navigate("/"); // Перенаправляем пользователя на главную страницу после сохранения токена
     }
