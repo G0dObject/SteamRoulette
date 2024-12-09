@@ -1,16 +1,19 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using SteamRoulette.Domain;
 using SteamRoulette.Persistanse;
-using SteamRoullete.WebApi;
-using SteamRoullete.WebApi.DTO;
-using SteamRoullete.WebApi.Services;
+using SteamRoulette.ServiceDefaults;
+using SteamRoulette.WebApi;
+using SteamRoulette.WebApi.DTO;
+using SteamRoulette.WebApi.Services;
+
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Logging.AddConsole();
-builder.Services.AddDefaultServices();
+Microsoft.Extensions.Hosting.DefaultExtensions.AddDefaultServices(builder.Services);
 
 builder.Services.AddCustomAuthentication(builder.Configuration);
+
 builder.Services.AddHealthChecks();
 builder.AddServiceDefaults();
 builder.Services.AddDbContext<SteamDbContext>(opt => opt.EnableSensitiveDataLogging());

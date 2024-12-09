@@ -6,9 +6,9 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var cache = builder.AddRedis("cache");
 
-var webapi = builder.AddProject<Projects.SteamRoullete_WebApi>("WebApi");
+var webapi = builder.AddProject<Projects.SteamRoulette_WebApi>("WebApi");
 
-var frontend = builder.AddNpmApp("frontend", "../SteamRoullete.FrontEnd", "dev")
+var frontend = builder.AddNpmApp("frontend", "../SteamRoulette.FrontEnd", "dev")
     .WithReference(webapi)
     .WithReference(cache)
     .WithHttpEndpoint(env: "VITE_PORT", port: frontendport)

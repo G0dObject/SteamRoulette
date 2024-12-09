@@ -1,4 +1,4 @@
-﻿namespace SteamRoullete.WebApi.DTO
+﻿namespace SteamRoulette.WebApi.DTO
 {
     public class SteamItemDTO
     {

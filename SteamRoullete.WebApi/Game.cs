@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 
-namespace SteamRoullete.WebApi
+namespace SteamRoulette.WebApi
 {
     public class Game
     {

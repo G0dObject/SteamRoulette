@@ -23,7 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SteamRoulette.ServiceDefaults\SteamRoulette.ServiceDefaults.csproj" />
-    <ProjectReference Include="..\SteamRoullete.WebApi\SteamRoullete.WebApi.csproj" />
+    <ProjectReference Include="..\SteamRoulette.WebApi\SteamRoulette.WebApi.csproj" />
   </ItemGroup>
 
 </Project>

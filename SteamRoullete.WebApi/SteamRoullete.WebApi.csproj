@@ -26,6 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SteamRoulette.Domain\SteamRoulette.Domain.csproj" />
+    <ProjectReference Include="..\SteamRoulette.Infrastructure\SteamRoulette.Infrastructure.csproj" />
     <ProjectReference Include="..\SteamRoulette.Persistanse\SteamRoulette.Persistanse.csproj" />
     <ProjectReference Include="..\SteamRoulette.ServiceDefaults\SteamRoulette.ServiceDefaults.csproj" />
   </ItemGroup>

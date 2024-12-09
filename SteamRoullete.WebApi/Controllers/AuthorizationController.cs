@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SteamRoulette.Domain;
-using SteamRoullete.WebApi.Services;
+using SteamRoulette.WebApi.Services;
 using System.Security.Claims;
 
-namespace SteamRoullete.WebApi.Controllers
+namespace SteamRoulette.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

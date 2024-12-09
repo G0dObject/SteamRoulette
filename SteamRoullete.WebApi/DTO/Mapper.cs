@@ -1,7 +1,7 @@
 ﻿using SteamRoulette.Domain.Common;
-using SteamRoullete.WebApi.DTO;
+using SteamRoulette.WebApi.DTO;
 
-namespace SteamRoullete.WebApi.DTO
+namespace SteamRoulette.WebApi.DTO
 {
     public class Mapper
     {

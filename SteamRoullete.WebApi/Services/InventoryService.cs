@@ -2,7 +2,7 @@
 using SteamRoulette.Domain.Common;
 using SteamRoulette.Persistanse;
 
-namespace SteamRoullete.WebApi.Services
+namespace SteamRoulette.WebApi.Services
 {
     public class InventoryService
     {

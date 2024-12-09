@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using SteamRoulette.Domain;
 using SteamRoulette.Persistanse;
 
-namespace SteamRoullete.WebApi.Services
+namespace SteamRoulette.WebApi.Services
 {
     public class SteamService
     {

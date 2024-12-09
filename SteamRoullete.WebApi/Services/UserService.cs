@@ -4,7 +4,7 @@ using SteamRoulette.Domain;
 using SteamRoulette.Persistanse;
 using System.Security.Claims;
 
-namespace SteamRoullete.WebApi.Services
+namespace SteamRoulette.WebApi.Services
 {
     public class UserService
     {

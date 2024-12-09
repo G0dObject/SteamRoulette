@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SteamRoullete.WebApi.DTO;
-using SteamRoullete.WebApi.Services;
+using SteamRoulette.WebApi.DTO;
+using SteamRoulette.WebApi.Services;
 
-namespace SteamRoullete.WebApi.Controllers
+namespace SteamRoulette.WebApi.Controllers
 {
     public class InventoryController(ILogger logger, InventoryService inventoryService, Mapper mapper)
     {
