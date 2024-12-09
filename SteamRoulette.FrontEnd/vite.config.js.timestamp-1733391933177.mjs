@@ -1,6 +1,6 @@
 // vite.config.js
-import { defineConfig } from "file:///I:/Dotnet/SteamRoulette/SteamRoullete.FrontEnd/node_modules/vite/dist/node/index.js";
-import react from "file:///I:/Dotnet/SteamRoulette/SteamRoullete.FrontEnd/node_modules/@vitejs/plugin-react/dist/index.mjs";
+import { defineConfig } from "file:///I:/Dotnet/SteamRoulette/SteamRoulette.FrontEnd/node_modules/vite/dist/node/index.js";
+import react from "file:///I:/Dotnet/SteamRoulette/SteamRoulette.FrontEnd/node_modules/@vitejs/plugin-react/dist/index.mjs";
 var vite_config_default = defineConfig({
   define: {
     "import.meta.env.VITE_API_URL": JSON.stringify(process.env.services__WebApi__https__0)

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SteamRoulette.Domain;
+using SteamRoulette.Infrastructure.Intefaces.Services;
 using SteamRoulette.WebApi.Services;
 using System.Security.Claims;
 
@@ -9,7 +10,7 @@ namespace SteamRoulette.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController(IConfiguration configuration, UserManager<SteamUser> userManager, SignInManager<SteamUser> signInManager, UserService userService, JwtTokenGenerator jwtTokenGenerator) : ControllerBase
+    public class AuthController(IConfiguration configuration, UserManager<SteamUser> userManager, SignInManager<SteamUser> signInManager, UserService userService, IJwtTokenGenerator jwtTokenGenerator) : ControllerBase
     {
         [HttpGet("Login")]
         public IActionResult Login([FromQuery] string returnUrl)
@@ -32,13 +33,13 @@ namespace SteamRoulette.WebApi.Controllers
             {
                 var user = await userService.Authorize(authenticateResult);
 
-                List<Claim> authClaims = new()
-                {
+                List<Claim> authClaims =
+                [
                     new Claim(ClaimTypes.Name, user.UserName),
                     new Claim(ClaimTypes.NameIdentifier, user.SteamUserId.ToString()),
                     new Claim(ClaimTypes.UserData, user.ImgUrl)
 
-                };
+                ];
                 var token = jwtTokenGenerator.GenerateJwtToken(authClaims);
                 return Redirect(returnUrl + "token=" + token);
             }

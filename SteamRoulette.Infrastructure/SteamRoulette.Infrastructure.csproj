@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SteamRoulette.Domain\SteamRoulette.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

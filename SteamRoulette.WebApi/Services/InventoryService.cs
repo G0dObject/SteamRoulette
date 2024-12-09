@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SteamRoulette.Domain.Common;
+using SteamRoulette.Infrastructure.Intefaces.Services;
 using SteamRoulette.Persistanse;
 
 namespace SteamRoulette.WebApi.Services
 {
-    public class InventoryService
+    public class InventoryService : IInventoryService
     {
         private readonly SteamService _steamService;
         private readonly SteamDbContext _steamDbContext;
@@ -12,6 +13,11 @@ namespace SteamRoulette.WebApi.Services
         {
             _steamService = steamService;
             _steamDbContext = steamDbContext;
+        }
+
+        public async Task<SteamItem?> GetItemById(int itemId)
+        {
+            return await _steamDbContext.SteamItems.FindAsync(itemId);
         }
 
         public async Task<List<SteamItem>> GetUserItems(string steamId)

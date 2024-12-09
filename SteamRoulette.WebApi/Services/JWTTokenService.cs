@@ -1,11 +1,12 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using SteamRoulette.Infrastructure.Intefaces.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
 namespace SteamRoulette.WebApi.Services
 {
-    public class JwtTokenGenerator
+    public class JwtTokenGenerator : IJwtTokenGenerator
     {
         private readonly IConfiguration _configuration;
         public JwtTokenGenerator(IConfiguration configuration) => _configuration = configuration;
