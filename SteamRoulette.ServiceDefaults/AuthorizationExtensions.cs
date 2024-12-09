@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace SteamRoullete.WebApi
+namespace SteamRoulette.ServiceDefaults
 {
-    public static class Extension
+    static public class AuthorizationExtensions
     {
         public static IServiceCollection AddCustomAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
@@ -35,13 +38,5 @@ namespace SteamRoullete.WebApi
             return services;
         }
 
-        public static IServiceCollection AddDefaultServices(this IServiceCollection services)
-        {
-            _ = services.AddEndpointsApiExplorer();
-            _ = services.AddSwaggerGen();
-            _ = services.AddControllers();
-
-            return services;
-        }
     }
 }
