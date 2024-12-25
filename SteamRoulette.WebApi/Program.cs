@@ -13,7 +13,9 @@ internal class Program
     {
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
+        builder.Logging.ClearProviders();
         builder.Logging.AddConsole();
+
         builder.Services.AddDefaultServices();
 
         builder.Services.AddCustomAuthentication(builder.Configuration);
@@ -48,19 +50,26 @@ internal class Program
                 opt.AllowAnyOrigin();
                 opt.AllowAnyMethod();
                 opt.AllowAnyHeader();
+                opt.AllowCredentials()
+                   .WithOrigins("http://localhost:5000");
             });
         });
         builder.Services.AddScoped<SteamService>();
         builder.Services.AddScoped<UserService>();
         builder.Services.AddSingleton<Mapper>();
-
         WebApplication app = builder.Build();
+
+        var game = app.Services.GetRequiredService<Game>();
+        var cancellationToken = app.Services.GetRequiredService<IHostApplicationLifetime>().ApplicationStopping;
+        Task.Run(() => game.StartGameAsync(cancellationToken), cancellationToken);
 
         app.MapHealthChecks("/health");
         app.MapControllers();
         app.UseHttpsRedirection();
         app.UseSwagger();
         app.UseSwaggerUI();
+
+        app.MapHub<GameHub>("/gameHub");
 
         app.UseCors("default");
 

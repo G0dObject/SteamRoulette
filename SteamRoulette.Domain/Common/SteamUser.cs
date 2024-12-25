@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using SteamRoulette.Domain.Common;
 
 namespace SteamRoulette.Domain
 {
@@ -8,6 +9,7 @@ namespace SteamRoulette.Domain
 
         public string? ImgUrl { get; set; }
         public string? Name { get; set; }
+        public ICollection<SteamItem> SteamItems { get; set; } = new List<SteamItem>();
 
         public DateTime? CreatedAt { get; set; } = DateTime.Now;
         public DateTime? LastSeens { get; set; }

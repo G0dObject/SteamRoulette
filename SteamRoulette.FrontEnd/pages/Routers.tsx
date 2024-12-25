@@ -7,8 +7,13 @@ import AuthCallback from "../components/AuthCallback";
 import App from "./index";
 import authStore from "../src/store/AuthStore";
 import StoreContext from "../src/store/StoreContext";
+import { getInventoryByToken } from "../src/Api/inventory";
 
 const Routers: React.FC = () => {
+  var g = getInventoryByToken().then((s) => console.log(s));
+
+
+
   return (
     <StoreContext.Provider value={authStore}>
       <Router>

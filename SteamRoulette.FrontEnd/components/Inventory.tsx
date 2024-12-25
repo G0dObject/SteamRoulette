@@ -1,14 +1,11 @@
+import { SteamItem } from "@/src/Api/inventory";
 import React from "react";
+import { Item } from "./Item";
 
-interface InventoryItem {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-}
+
 
 interface InventoryProps {
-  items: InventoryItem[];
+  items: SteamItem[];
 }
 
 const Inventory: React.FC<InventoryProps> = ({ items }) => {
@@ -37,15 +34,7 @@ const Inventory: React.FC<InventoryProps> = ({ items }) => {
       </div>
       <div className="mt-4 grid grid-cols-3 gap-2 ">
         {items.map((item) => (
-          <div key={item.id} className="bg-gray-700 p-2 rounded text-center">
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-full h-24 object-cover mb-2"
-            />
-            <span className="text-white">{item.name}</span>
-            <span className="text-gray-300 block mt-1">${item.price}</span>
-          </div>
+          <Item item={item} ></Item>
         ))}
       </div>
     </div>

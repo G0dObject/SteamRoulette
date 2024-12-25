@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { HubConnectionBuilder } from "@microsoft/signalr";
 
 import WelcomeLogin from "../components/WelcomeLogin";
 import StatusBar from "../components/StatusBar";
 import NumberInput from "../components/NumberInput";
-import MultiplierGraph from "../components/MultiplierGraph";
-
+import MultiplierGraph from "../components/Rocket";
 import UserInventory from "../components/UserInventory";
 import Ranking from "../components/Ranking";
 import Chat from "../components/Chat";
@@ -13,89 +13,96 @@ import YouLose from "../components/YouLose";
 
 import styles from "../styles/Root.module.scss";
 import authStore from "../src/store/AuthStore";
+import { getInventoryByToken, SteamItem } from "../src/Api/inventory";
+import { GraphWrapper } from "../components/GraphWrapper";
 
-interface Player {
-  name: string;
-  points: number;
-  multiplier: number;
-}
-
-interface GraphDataPoints {
-  name: string;
-  multiplier?: number;
-}
-
-const defaultData: GraphDataPoints[] = [
-  { name: "0" },
-  { name: "1" },
-  { name: "2" },
-  { name: "3" },
-  { name: "4" },
-  { name: "5" },
-  { name: "6" },
-  { name: "7" },
-  { name: "8" },
-  { name: "9" },
-  { name: "10" },
-];
-
-const generateGraphData = (): GraphDataPoints[] => {
-  const data: GraphDataPoints[] = [];
-  const lastResult = parseFloat((Math.random() * 11).toFixed(2)); // Random value for the last round
-  data.push({ name: "10", multiplier: lastResult });
-
-  // Generate the initial rounds based on the random value of the last round
-  let currentResult = lastResult;
-  for (let i = 9; i >= 0; i--) {
-    currentResult *= 0.85; // Decrement factor for a downward curve
-    data.push({
-      name: `${i}`,
-      multiplier: parseFloat(currentResult.toFixed(2)),
-    });
-  }
-
-  return data.reverse(); // Reverse the data array to start with the first round
-};
-
-const getRandomValueFromMultiples = (
-  min: number,
-  max: number,
-  step: number
-) => {
-  const multiples = Array.from(
-    { length: Math.floor((max - min) / step) + 1 },
-    (_, i) => min + i * step
-  );
-  return multiples[Math.floor(Math.random() * multiples.length)];
-};
-
-const randomPoints = () => getRandomValueFromMultiples(50, 1000, 25);
-const randomMultipliers = () =>
-  parseFloat(getRandomValueFromMultiples(1.0, 10, 0.25).toFixed(2));
 
 const Home: React.FC = () => {
-  const [multiplier, setMultiplier] = useState<number>(2.0); // Min and default value is 1.00, increment by 0.25
-  const [speed, setSpeed] = useState<number>(1);
-  const [speedMs, setSpeedMs] = useState<number>(5000);
-  const [data, setData] = useState<GraphDataPoints[]>(defaultData);
-  const [result, setResult] = useState<number>(0);
-  const [chartKey, setChartKey] = useState<number>(0);
-  const [round, setRound] = useState<Player[]>([]);
-  const [ranking, setRanking] = useState<Player[]>([]);
+  const [isGameRunning, setIsGameRunning] = useState<boolean>(false); // Флаг запуска игры
+  const [result, setResult] = useState<number>(1); // Текущее значение
+  const [isCrush, setIsCrush] = useState<boolean>(false); // Флаг краха
+  const [crushValue, setCrushValue] = useState<number | null>(null); // Значение краха
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [userName, setUserName] = useState<string | null>("");
   const [userImg, setUserImg] = useState<string | null>("");
   const [userPoints, setUserPoints] = useState<number>(1000); // Example points
   const [userWon, setUserWon] = useState<boolean>();
+  const [connection, setConnection] = useState<signalR.HubConnection | null>(null);
+  const [countdown, setCountdown] = useState<number | null>(null); // Обратный отсчет
+  const countdownIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [userItems, setUserItems] = useState<SteamItem[]>([]);
 
   useEffect(() => {
     checkauth();
+    getItems();
+    // Создаем подключение к SignalR Hub
+    const newConnection = new HubConnectionBuilder()
+      .withUrl("https://localhost:7069/gameHub") // URL вашего GameHub
+      .withAutomaticReconnect() // Автоматически переподключаться при потере соединения
+      .build();
+
+    setConnection(newConnection);
+
+    // Начинаем подключение
+    newConnection
+      .start()
+      .then(() => console.log("Connected to the game hub!"))
+      .catch((err) => console.error("Failed to connect to the game hub:", err));
+
+    // Подписываемся на событие PreparationGame
+    newConnection.on("PreparationGame", () => {
+      console.log("ready???");
+      setCountdown(10); // Начинаем обратный отсчет с 10
+      countdownIntervalRef.current = setInterval(() => {
+        setCountdown((prevCountdown) => {
+          if (prevCountdown === null || prevCountdown <= 0) {
+            clearInterval(countdownIntervalRef.current!);
+            return null;
+          }
+          return prevCountdown - 0.2; // Уменьшаем на 0.2 каждую секунду
+        });
+      }, 200); // Обновляем каждые 200 мс
+    });
+
+    // Подписываемся на событие Start
+    newConnection.on("Start", () => {
+      console.log("Go!!!");
+      clearInterval(countdownIntervalRef.current!);
+      setCountdown(null); // Останавливаем обратный отсчет
+      setIsGameRunning(true); // Устанавливаем флаг запуска игры
+      setIsCrush(false); // Сбрасываем флаг краха
+      setCrushValue(null); // Сбрасываем значение краха
+      setResult(1); // Сбрасываем текущее значение на 1
+    });
+
+    // Подписываемся на событие Crush
+    newConnection.on("Crush", (crashValue) => {
+      console.log(`Game crushed at: ${crashValue}`);
+      // Устанавливаем флаг краха и значение краха
+      setIsCrush(true);
+      setCrushValue(crashValue);
+
+      // Останавливаем игру
+      setIsGameRunning(false);
+    });
+
+    // Очищаем подключение при размонтировании компонента
+    return () => {
+      newConnection.stop();
+      clearInterval(countdownIntervalRef.current!);
+    };
   }, []);
+
+
+  const getItems = ()=>{
+   getInventoryByToken().then((res)=>{
+    setUserItems(res)
+   })
+  }
 
   const checkauth = () => {
     if (localStorage.getItem("authToken")) {
       setIsLoggedIn(true);
-      //WARNING
       setUserName(authStore.name);
       setUserImg(authStore.img);
     }
@@ -113,32 +120,16 @@ const Home: React.FC = () => {
                 <div className="flex justify-center items-center columns-6 gap-3"></div>
               </div>
               <button
-                onClick={() => {}}
+                
                 className="text-white font-bold py-4  mb-4 px-4 rounded bg-gradient-to-r from-pink-500 to-red-500 w-full "
               >
                 <div className="text-2xl font-bold">Start</div>
               </button>
 
-              <UserInventory />
+              <UserInventory items={userItems} />
             </div>
           )}
-          <div className="col-span-8 relative">
-            {userWon != null ? <YouLose userWon={userWon} /> : null}
-            <StatusBar
-              loggedIn={isLoggedIn}
-              userName={userName}
-              points={userPoints}
-              userimg={userImg}
-            />
-            <div className={styles.gameBoard}>
-              <AnimatedNumber
-                value={result}
-                speedMs={speedMs}
-                className={styles.animatedNumber}
-              />
-              <MultiplierGraph key={chartKey} data={data} speedMs={speedMs} />
-            </div>
-          </div>
+         <GraphWrapper userWon={userWon as boolean} isLoggedIn={isLoggedIn} userName={userName as string} userImg={userImg as string} userPoints={userPoints} result={result}   />
         </div>
       </div>
       <div className="container mx-auto px-8">

@@ -7,6 +7,9 @@
         public string SteamItemImg { get; set; }
         public string SteamItemTitle { get; set; }
 
+
+        public int SteamUserId { get; set; }
         public SteamUser? SteamUser { get; set; }
+       
     }
 }

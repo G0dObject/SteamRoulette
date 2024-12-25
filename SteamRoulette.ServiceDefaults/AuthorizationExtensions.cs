@@ -14,7 +14,7 @@ namespace SteamRoulette.ServiceDefaults
             _ = services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = "Steam";
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
      .AddJwtBearer(options =>
      {
@@ -24,9 +24,9 @@ namespace SteamRoulette.ServiceDefaults
              ValidateAudience = false,
              ValidateLifetime = false,
              ValidateIssuerSigningKey = false,
-             ValidIssuer = "your-issuer", // Replace with your issuer
-             ValidAudience = "your-audience", // Replace with your audience
-             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your-secret-key"))
+             ValidIssuer = configuration["Jwt:Issuer"],
+             ValidAudience = configuration["Jwt:Issuer"],
+             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]))
          };
      })
      .AddSteam(options =>
