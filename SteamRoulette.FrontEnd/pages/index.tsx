@@ -123,7 +123,7 @@ const Home: React.FC = () => {
                 
                 className="text-white font-bold py-4  mb-4 px-4 rounded bg-gradient-to-r from-pink-500 to-red-500 w-full "
               >
-                <div className="text-2xl font-bold">Start</div>
+                <div className="text-2xl font-bold">Начать</div>
               </button>
 
               <UserInventory items={userItems} />

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import AnimatedNumber from "./AnimatedNumber";
 import authStore from "../src/store/AuthStore";
 
 interface StatusBarProps {
@@ -104,7 +103,7 @@ const StatusBar: React.FC<StatusBarProps> = ({
           </span>
           <span className="text-2xl font-bold">
             {loggedIn && points !== undefined ? (
-              <AnimatedNumber value={points} speedMs={1000} className="flex" />
+             <>12</>
             ) : (
               <span>&nbsp;</span>
             )}

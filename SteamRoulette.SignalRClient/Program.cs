@@ -18,12 +18,9 @@ namespace SteamRoulette.Client
                 .Build();
 
             // Подписываемся на события от сервера
-            _connection.On<double, double>("ReceiveNumber", (number, increment) =>
-            {
-                Console.WriteLine($"Current number: {number}, increment: {increment}");
-            });
+            
 
-            _connection.On<double>("Crush", (crashValue) =>
+            _connection.On<decimal>("Crush", (crashValue) =>
             {
                 Console.WriteLine($"Game crushed at: {crashValue}");
             });

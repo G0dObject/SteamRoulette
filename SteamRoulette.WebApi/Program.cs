@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using SteamRoulette.Domain;
+using SteamRoulette.Domain.Game;
 using SteamRoulette.Infrastructure.Intefaces.Services;
 using SteamRoulette.Persistanse;
 using SteamRoulette.ServiceDefaults;
@@ -13,7 +14,6 @@ internal class Program
     {
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-        builder.Logging.ClearProviders();
         builder.Logging.AddConsole();
 
         builder.Services.AddDefaultServices();
@@ -39,9 +39,11 @@ internal class Program
         builder.Services.AddSignalR();
 
         builder.Services.AddHttpClient<SteamService>();
-        builder.Services.AddSingleton<Game>();
         builder.Services.AddScoped<InventoryService>();
         builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+
+        builder.Services.AddSingleton<Game>();
+
 
         builder.Services.AddCors(opt =>
         {
@@ -62,6 +64,7 @@ internal class Program
         var game = app.Services.GetRequiredService<Game>();
         var cancellationToken = app.Services.GetRequiredService<IHostApplicationLifetime>().ApplicationStopping;
         Task.Run(() => game.StartGameAsync(cancellationToken), cancellationToken);
+
 
         app.MapHealthChecks("/health");
         app.MapControllers();

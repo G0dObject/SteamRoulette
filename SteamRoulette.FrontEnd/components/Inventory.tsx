@@ -12,7 +12,7 @@ const Inventory: React.FC<InventoryProps> = ({ items }) => {
   return (
     <div className="bg-gray-800 p-4 rounded-lg shadow-lg w-full max-h-[550px] overflow-y-auto mt-3">
       <div className="sticky top-0 bg-gray-800 z-10 py-2 top-[-18px]">
-        <div className="flex items-center mb-1">
+        <div className="flex items-center mb-1 ">
           <svg
             className="fill-white w-6 h-6 mr-1"
             fill="#000000"
@@ -32,7 +32,7 @@ const Inventory: React.FC<InventoryProps> = ({ items }) => {
           <h1 className="font-bold text-xl"> Inventory</h1>
         </div>
       </div>
-      <div className="mt-4 grid grid-cols-3 gap-2 ">
+      <div className="mt-4 grid grid-cols-3 gap-2 min-h-96 ">
         {items.map((item) => (
           <Item item={item} ></Item>
         ))}
