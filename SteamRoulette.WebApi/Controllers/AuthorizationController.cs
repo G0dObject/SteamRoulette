@@ -19,7 +19,7 @@ namespace SteamRoulette.WebApi.Controllers
         [HttpGet("TestAuth")]
         public IActionResult Test()
         {
-            if (User.Identity.IsAuthenticated) 
+            if (User.Identity.IsAuthenticated)
                 return Ok();
             return Unauthorized();
         }

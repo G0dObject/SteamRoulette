@@ -2,8 +2,6 @@ import { SteamItem } from "@/src/Api/inventory";
 import React from "react";
 import { Item } from "./Item";
 
-
-
 interface InventoryProps {
   items: SteamItem[];
 }
@@ -34,7 +32,7 @@ const Inventory: React.FC<InventoryProps> = ({ items }) => {
       </div>
       <div className="mt-4 grid grid-cols-3 gap-2 min-h-96 ">
         {items.map((item) => (
-          <Item item={item} ></Item>
+          <Item key={item.SteamItemId} item={item}></Item>
         ))}
       </div>
     </div>

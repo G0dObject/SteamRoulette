@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SteamRoulette.Domain.Common;
 using SteamRoulette.WebApi.DTO;
 using SteamRoulette.WebApi.Services;
 using System.Security.Claims;
