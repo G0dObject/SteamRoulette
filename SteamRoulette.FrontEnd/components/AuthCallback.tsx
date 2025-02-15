@@ -1,4 +1,3 @@
-// src/components/AuthCallback.tsx
 import React, { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useStore } from "../src/store/StoreContext";

@@ -51,7 +51,6 @@ namespace SteamRoulette.WebApi.Controllers
                     new Claim(ClaimTypes.Name, user.UserName),
                     new Claim(ClaimTypes.NameIdentifier, user.SteamUserId.ToString()),
                     new Claim(ClaimTypes.UserData, user.ImgUrl)
-
                 ];
                 var token = jwtTokenGenerator.GenerateJwtToken(authClaims);
                 return Redirect(returnUrl + "token=" + token);

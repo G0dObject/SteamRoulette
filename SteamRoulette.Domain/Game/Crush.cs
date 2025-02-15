@@ -8,11 +8,11 @@
         private (double, double) _massiveSpread = (13d, 100d);
 
         public CrushType Type { get; init; }
-        public decimal Multiplayer { get; private set; }
+        public decimal Multiplier { get; private set; }
         public Crush(CrushType type)
         {
             Type = type;
-            Multiplayer = GenerateMultiplayer();
+            Multiplier = GenerateMultiplayer();
         }
 
         private decimal GenerateMultiplayer()

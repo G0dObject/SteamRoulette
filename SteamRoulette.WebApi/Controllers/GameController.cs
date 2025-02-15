@@ -10,9 +10,6 @@ namespace SteamRoulette.WebApi.Controllers
     public class GameController() : ControllerBase
     {
 
-
-
-
     }
 
 }

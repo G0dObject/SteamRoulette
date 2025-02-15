@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { HubConnectionBuilder } from "@microsoft/signalr";
-
 import UserInventory from "../components/UserInventory";
-
 import styles from "../styles/Root.module.scss";
 import authStore from "../src/store/AuthStore";
 import { getInventoryByToken, SteamItem } from "../src/Api/inventory";
 import { GraphWrapper } from "../components/GraphWrapper";
 
 const Home: React.FC = () => {
-  const [isGameRunning, setIsGameRunning] = useState<boolean>(false);
+  const [isGameRunning, setIsGameRunning] = useState<boolean>(true);
   const [result, setResult] = useState<number>(1);
   const [isCrush, setIsCrush] = useState<boolean>(false);
   const [crushValue, setCrushValue] = useState<number | null>(null);
@@ -26,8 +24,8 @@ const Home: React.FC = () => {
   const [userItems, setUserItems] = useState<SteamItem[]>([]);
 
   useEffect(() => {
-    checkauth();
-    getItems();
+    checkAuth();
+    fetchItems();
 
     const newConnection = new HubConnectionBuilder()
       .withUrl("https://localhost:7069/gameHub")
@@ -41,37 +39,9 @@ const Home: React.FC = () => {
       .then(() => console.log("Connected to the game hub!"))
       .catch((err) => console.error("Failed to connect to the game hub:", err));
 
-    newConnection.on("PreparationGame", () => {
-      console.log("ready???");
-      setCountdown(10);
-      countdownIntervalRef.current = setInterval(() => {
-        setCountdown((prevCountdown) => {
-          if (prevCountdown === null || prevCountdown <= 0) {
-            clearInterval(countdownIntervalRef.current!);
-            return null;
-          }
-          return prevCountdown - 0.2;
-        });
-      }, 200);
-    });
-
-    newConnection.on("Start", () => {
-      console.log("Go!!!");
-      clearInterval(countdownIntervalRef.current!);
-      setCountdown(null);
-      setIsGameRunning(true);
-      setIsCrush(false);
-      setCrushValue(null);
-      setResult(1);
-    });
-
-    newConnection.on("Crush", (crashValue) => {
-      console.log(`Game crushed at: ${crashValue}`);
-      setIsCrush(true);
-      setCrushValue(crashValue);
-
-      setIsGameRunning(false);
-    });
+    newConnection.on("PreparationGame", handlePreparationGame);
+    newConnection.on("Start", handleGameStart);
+    newConnection.on("Crush", handleGameCrush);
 
     return () => {
       newConnection.stop();
@@ -79,18 +49,52 @@ const Home: React.FC = () => {
     };
   }, []);
 
-  const getItems = () => {
-    getInventoryByToken().then((res) => {
-      setUserItems(res);
-    });
+  const fetchItems = async () => {
+    try {
+      const items = await getInventoryByToken();
+      setUserItems(items);
+    } catch (error) {
+      console.error("Failed to fetch items:", error);
+    }
   };
 
-  const checkauth = () => {
+  const checkAuth = () => {
     if (localStorage.getItem("authToken")) {
       setIsLoggedIn(true);
       setUserName(authStore.name);
       setUserImg(authStore.img);
     }
+  };
+
+  const handlePreparationGame = () => {
+    console.log("ready???");
+    setCountdown(10);
+    countdownIntervalRef.current = setInterval(() => {
+      setCountdown((prevCountdown) => {
+        if (prevCountdown === null || prevCountdown <= 0) {
+          clearInterval(countdownIntervalRef.current!);
+          return null;
+        }
+        return prevCountdown - 0.2;
+      });
+    }, 200);
+  };
+
+  const handleGameStart = () => {
+    console.log("Go!!!");
+    clearInterval(countdownIntervalRef.current!);
+    setCountdown(null);
+    setIsGameRunning(true);
+    setIsCrush(false);
+    setCrushValue(null);
+    setResult(1);
+  };
+
+  const handleGameCrush = (crashValue: number) => {
+    console.log(`Game crushed at: ${crashValue}`);
+    setIsCrush(true);
+    setCrushValue(crashValue);
+    setIsGameRunning(false);
   };
 
   return (
@@ -104,14 +108,14 @@ const Home: React.FC = () => {
               <div className="styles.gameHeader">
                 <div className="flex justify-center items-center columns-6 gap-3"></div>
               </div>
-              <button className="text-white font-bold py-4  mb-4 px-4 rounded bg-gradient-to-r from-pink-500 to-red-500 w-full ">
+              <button className="text-white font-bold py-4 mb-4 px-4 rounded bg-gradient-to-r from-pink-500 to-red-500 w-full">
                 <div className="text-2xl font-bold">Начать</div>
               </button>
-
               <UserInventory items={userItems} />
             </div>
           )}
           <GraphWrapper
+            connection={connection}
             isGameStart={isGameRunning}
             userWon={userWon as boolean}
             isLoggedIn={isLoggedIn}
