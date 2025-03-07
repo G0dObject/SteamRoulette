@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import StatusBar from "../components/StatusBar";
 import YouLose from "../components/YouLose";
-import CrashChart from "./CrashChart";
+import GameInterface from "./GameInterface";
 import GamePreparation from "./GamePreparation";
-import { log } from "console";
 
 interface GraphWrapperProps {
   userWon: boolean;
@@ -26,10 +25,10 @@ export const GraphWrapper: React.FC<GraphWrapperProps> = ({
   result,
   connection,
 }) => {
-  const [value, setValue] = useState<number>(0);
+  const [value, setValue] = useState<number>(1);
 
   useEffect(() => {
-    if (connection) {
+    if (connection) {``
       connection.on("UpdateNumber", (dataPoint) => {
         console.log(dataPoint);
         setValue(dataPoint);
@@ -47,7 +46,7 @@ export const GraphWrapper: React.FC<GraphWrapperProps> = ({
         userimg={userImg}
       />
       <div className="mt-6">
-        {isGameStart ? <CrashChart newValue={value} /> : <GamePreparation />}
+        {isGameStart ? <GameInterface/> : <GamePreparation />}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../src/store/AuthStore";
 import AuthCallback from "../components/AuthCallback";
-import App from "./index";
+import App from "./App";
 import authStore from "../src/store/AuthStore";
 import StoreContext from "../src/store/StoreContext";
 import { getInventoryByToken } from "../src/Api/inventory";

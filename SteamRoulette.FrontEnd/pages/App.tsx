@@ -25,7 +25,6 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     checkAuth();
-    fetchItems();
 
     const newConnection = new HubConnectionBuilder()
       .withUrl("https://localhost:7069/gameHub")
@@ -49,14 +48,7 @@ const Home: React.FC = () => {
     };
   }, []);
 
-  const fetchItems = async () => {
-    try {
-      const items = await getInventoryByToken();
-      setUserItems(items);
-    } catch (error) {
-      console.error("Failed to fetch items:", error);
-    }
-  };
+
 
   const checkAuth = () => {
     if (localStorage.getItem("authToken")) {
@@ -101,37 +93,11 @@ const Home: React.FC = () => {
     <div className="py-10 px-5">
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-12 gap-6">
-          {!isLoggedIn ? (
-            <div className="col-span-4">Auth with steam for game</div>
-          ) : (
-            <div className="col-span-4">
-              <div className="styles.gameHeader">
-                <div className="flex justify-center items-center columns-6 gap-3"></div>
-              </div>
-              <button className="text-white font-bold py-4 mb-4 px-4 rounded bg-gradient-to-r from-pink-500 to-red-500 w-full">
-                <div className="text-2xl font-bold">Начать</div>
-              </button>
-              <UserInventory items={userItems} />
-            </div>
-          )}
-          <GraphWrapper
-            connection={connection}
-            isGameStart={isGameRunning}
-            userWon={userWon as boolean}
-            isLoggedIn={isLoggedIn}
-            userName={userName as string}
-            userImg={userImg as string}
-            userPoints={userPoints}
-            result={result}
-          />
+          
+          
         </div>
       </div>
-      <div className="container mx-auto px-8">
-        <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-6"></div>
-          <div className="col-span-6"></div>
-        </div>
-      </div>
+      
     </div>
   );
 };
