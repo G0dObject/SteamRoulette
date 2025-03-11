@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { HubConnectionBuilder } from "@microsoft/signalr";
-import UserInventory from "../components/UserInventory";
 import styles from "../styles/Root.module.scss";
 import authStore from "../src/store/AuthStore";
 import { getInventoryByToken, SteamItem } from "../src/Api/inventory";
-import { GraphWrapper } from "../components/GraphWrapper";
+import Content from "./Content";
 
 const Home: React.FC = () => {
   const [isGameRunning, setIsGameRunning] = useState<boolean>(true);
@@ -90,15 +89,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="py-10 px-5">
-      <div className="container mx-auto px-8">
-        <div className="grid grid-cols-12 gap-6">
-          
-          
-        </div>
-      </div>
-      
-    </div>
+    <><Content/></>
   );
 };
 

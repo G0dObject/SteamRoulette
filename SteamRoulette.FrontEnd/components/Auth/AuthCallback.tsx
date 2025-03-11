@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useStore } from "../src/store/StoreContext";
+import { useStore } from "../../src/store/StoreContext";
 
 const AuthCallback: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -12,7 +12,7 @@ const AuthCallback: React.FC = () => {
     if (token) {
       authStore.setToken(token);
 
-      navigate("/"); // Перенаправляем пользователя на главную страницу после сохранения токена
+      navigate("/");
     }
   }, [token, authStore, navigate]);
 

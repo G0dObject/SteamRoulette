@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["../*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "components/StatusBar.jsx"],

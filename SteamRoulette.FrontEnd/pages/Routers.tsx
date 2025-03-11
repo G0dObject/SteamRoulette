@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../src/store/AuthStore";
-import AuthCallback from "../components/AuthCallback";
+import AuthCallback from "../components/Auth/AuthCallback";
 import App from "./App";
 import authStore from "../src/store/AuthStore";
 import StoreContext from "../src/store/StoreContext";
