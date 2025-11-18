@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SteamRoulette.Domain;
+using SteamRoulette.Domain.Game;
 using SteamRoulette.Infrastructure.Intefaces.Services;
 using SteamRoulette.Persistence;
 using SteamRoulette.ServiceDefaults;
@@ -15,6 +16,7 @@ internal class Program
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
         builder.Logging.AddConsole();
+
         builder.Services.AddDefaultServices();
 
         builder.Services.AddCustomAuthentication(builder.Configuration);
@@ -62,7 +64,6 @@ internal class Program
         builder.Services.AddScoped<SteamService>();
         builder.Services.AddScoped<UserService>();
         builder.Services.AddSingleton<Mapper>();
-
         WebApplication app = builder.Build();
 
         // Apply migrations
@@ -72,6 +73,10 @@ internal class Program
             dbContext.Database.Migrate();
         }
 
+        var game = app.Services.GetRequiredService<Game>();
+        var cancellationToken = app.Services.GetRequiredService<IHostApplicationLifetime>().ApplicationStopping;
+        Task.Run(() => game.StartGameAsync(cancellationToken), cancellationToken);
+
         app.UseHttpsRedirection();
         app.UseCors("default");
         app.UseAuthentication();
@@ -79,7 +84,7 @@ internal class Program
 
         app.MapHealthChecks("/health");
         app.MapControllers();
-        app.MapHub<GameHub>("/gamehub");
+        app.MapHub<GameHub>("/gameHub");
         
         if (app.Environment.IsDevelopment())
         {

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SteamRoulette.Domain;
@@ -12,6 +14,17 @@ namespace SteamRoulette.WebApi.Controllers
     [ApiController]
     public class AuthController(UserService userService, IJwtTokenGenerator jwtTokenGenerator) : ControllerBase
     {
+
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpGet("TestAuth")]
+        public IActionResult Test()
+        {
+            if (User.Identity.IsAuthenticated)
+                return Ok();
+            return Unauthorized();
+        }
+
+
         [HttpGet("Login")]
         public IActionResult Login([FromQuery] string returnUrl)
         {
