@@ -1,5 +1,5 @@
 // src/components/AuthCallback.tsx
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useStore } from "../src/store/StoreContext";
 
@@ -8,17 +8,41 @@ const AuthCallback: React.FC = () => {
   const token = searchParams.get("token");
   const authStore = useStore();
   const navigate = useNavigate();
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (token) {
-      authStore.setToken(token);
+      try {
+        authStore.setToken(token);
+        // Небольшая задержка для сохранения токена
+        setTimeout(() => {
+          navigate("/");
+        }, 100);
+      } catch (err) {
+        setError("Ошибка при обработке токена");
+        console.error("Token processing error:", err);
+      }
+    } else {
+      // Если токена нет через 3 секунды, показываем ошибку
+      const timeout = setTimeout(() => {
+        setError("Токен не получен. Попробуйте войти снова.");
+      }, 3000);
 
-      navigate("/"); // Перенаправляем пользователя на главную страницу после сохранения токена
+      return () => clearTimeout(timeout);
     }
   }, [token, authStore, navigate]);
 
+  if (error) {
+    return (
+      <div style={{ padding: "20px", textAlign: "center" }}>
+        <p style={{ color: "red" }}>{error}</p>
+        <button onClick={() => navigate("/")}>Вернуться на главную</button>
+      </div>
+    );
+  }
+
   return (
-    <div>
+    <div style={{ padding: "20px", textAlign: "center" }}>
       <p>Processing authentication...</p>
     </div>
   );

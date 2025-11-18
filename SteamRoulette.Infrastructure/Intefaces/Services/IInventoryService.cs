@@ -7,6 +7,6 @@ namespace SteamRoulette.Infrastructure.Intefaces.Services
     {
         Task<List<SteamItem>> GetUserItems(string steamId);
 
-        Task<SteamItem> GetItemById(int itemId);
+        Task<SteamItem?> GetItemById(int itemId);
     }
 }

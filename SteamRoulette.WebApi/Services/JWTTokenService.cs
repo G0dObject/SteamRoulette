@@ -13,10 +13,14 @@ namespace SteamRoulette.WebApi.Services
 
         public string GenerateJwtToken(List<Claim> claims)
         {
-            SymmetricSecurityKey? authSigningKey = new(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-            JwtSecurityToken? token = new(
-                issuer: _configuration["Jwt:Issuer"],
-                audience: _configuration["Jwt:Audience"],
+            var jwtKey = _configuration["JWT:Key"] ?? throw new InvalidOperationException("JWT:Key is not configured");
+            var jwtIssuer = _configuration["JWT:Issuer"] ?? throw new InvalidOperationException("JWT:Issuer is not configured");
+            var jwtAudience = _configuration["JWT:Audience"] ?? throw new InvalidOperationException("JWT:Audience is not configured");
+
+            SymmetricSecurityKey authSigningKey = new(Encoding.UTF8.GetBytes(jwtKey));
+            JwtSecurityToken token = new(
+                issuer: jwtIssuer,
+                audience: jwtAudience,
                 expires: DateTime.Now.AddSeconds(123123132),
                 claims: claims,
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)

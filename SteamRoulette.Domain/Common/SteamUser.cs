@@ -4,7 +4,7 @@ namespace SteamRoulette.Domain
 {
     public class SteamUser : IdentityUser<int>
     {
-        public string SteamUserId { get; set; }
+        public string SteamUserId { get; set; } = string.Empty;
 
         public string? ImgUrl { get; set; }
         public string? Name { get; set; }

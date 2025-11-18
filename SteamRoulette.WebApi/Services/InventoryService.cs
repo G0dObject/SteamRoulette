@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SteamRoulette.Domain.Common;
 using SteamRoulette.Infrastructure.Intefaces.Services;
-using SteamRoulette.Persistanse;
+using SteamRoulette.Persistence;
 
 namespace SteamRoulette.WebApi.Services
 {
@@ -23,7 +23,14 @@ namespace SteamRoulette.WebApi.Services
         public async Task<List<SteamItem>> GetUserItems(string steamId)
         {
             var user = await _steamService.GetSteamUserBySteamId(steamId);
-            var items = await _steamDbContext.SteamItems.Where(f => f.SteamUser.SteamUserId == steamId).ToListAsync();
+            if (user == null)
+            {
+                return new List<SteamItem>();
+            }
+            
+            var items = await _steamDbContext.SteamItems
+                .Where(f => f.SteamUser != null && f.SteamUser.SteamUserId == steamId)
+                .ToListAsync();
 
             return items;
         }

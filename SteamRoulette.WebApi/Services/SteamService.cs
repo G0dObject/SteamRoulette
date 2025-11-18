@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json.Linq;
 using SteamRoulette.Domain;
-using SteamRoulette.Persistanse;
+using SteamRoulette.Persistence;
 
 namespace SteamRoulette.WebApi.Services
 {
@@ -22,16 +22,45 @@ namespace SteamRoulette.WebApi.Services
 
         public async Task<string> GetProfileImageUrlAsync(string steamId64)
         {
-            var requestUrl = $"https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key={_configuration["Steam:KEY"]}&steamids={steamId64}";
-            var response = _httpClient.GetStringAsync(requestUrl).Result;
+            try
+            {
+                var steamKey = _configuration["Steam:Key"] ?? _configuration["Steam:KEY"];
+                if (string.IsNullOrEmpty(steamKey))
+                {
+                    throw new InvalidOperationException("Steam API Key is not configured");
+                }
 
-            var jsonResponse = JObject.Parse(response);
-            var avatarFull = jsonResponse["response"]["players"][0]["avatarfull"].ToString();
+                var requestUrl = $"https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key={steamKey}&steamids={steamId64}";
+                
+                var response = await _httpClient.GetStringAsync(requestUrl);
 
-            return avatarFull;
+                if (string.IsNullOrEmpty(response))
+                {
+                    return string.Empty;
+                }
+
+                var jsonResponse = JObject.Parse(response);
+                var players = jsonResponse["response"]?["players"] as JArray;
+                
+                if (players == null || players.Count == 0)
+                {
+                    return string.Empty;
+                }
+
+                var avatarFull = players[0]?["avatarfull"]?.ToString() ?? string.Empty;
+                return avatarFull;
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new HttpRequestException($"Failed to retrieve Steam profile: {ex.Message}", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving Steam profile image: {ex.Message}", ex);
+            }
         }
 
-        public async Task<SteamUser> GetSteamUserBySteamId(string steamId)
+        public async Task<SteamUser?> GetSteamUserBySteamId(string steamId)
         {
             return await _userManager.FindBySteamIdAsync(steamId);
         }

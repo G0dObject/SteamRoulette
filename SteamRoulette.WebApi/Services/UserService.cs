@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using SteamRoulette.Domain;
-using SteamRoulette.Persistanse;
+using SteamRoulette.Persistence;
 using System.Security.Claims;
 
 namespace SteamRoulette.WebApi.Services
@@ -10,7 +10,6 @@ namespace SteamRoulette.WebApi.Services
     {
         private readonly UserManager<SteamUser> _userManager;
         private readonly SignInManager<SteamUser> _signInManager;
-        private readonly ILogger _logger;
         private readonly SteamService _steamService;
 
         public UserService(UserManager<SteamUser> userManager, SignInManager<SteamUser> signInManager, SteamService steamService)
@@ -22,7 +21,18 @@ namespace SteamRoulette.WebApi.Services
 
         public async Task<SteamUser> Authorize(AuthenticateResult authenticateResult)
         {
-            var _steamUserIdUrl = authenticateResult.Principal.Claims.First(f => f.Type == ClaimTypes.NameIdentifier).Value;
+            if (authenticateResult.Principal == null)
+            {
+                throw new InvalidOperationException("Authentication principal is null");
+            }
+
+            var steamUserIdClaim = authenticateResult.Principal.Claims.FirstOrDefault(f => f.Type == ClaimTypes.NameIdentifier);
+            if (steamUserIdClaim == null || string.IsNullOrEmpty(steamUserIdClaim.Value))
+            {
+                throw new InvalidOperationException("Steam user ID claim not found");
+            }
+
+            var _steamUserIdUrl = steamUserIdClaim.Value;
             var _steamUserId64 = _steamUserIdUrl.Split('/').Last();
 
             var user = await _userManager.FindBySteamIdAsync(_steamUserId64);
@@ -33,16 +43,29 @@ namespace SteamRoulette.WebApi.Services
             }
             else
             {
-                var steamUser = await _userManager.FindBySteamIdAsync(_steamUserId64);
-                await SignInUser(steamUser);
-                return steamUser;
+                await SignInUser(user);
+                return user;
             }
         }
         private async Task<SteamUser> CreateUser(AuthenticateResult authenticateResult, string steamId64)
         {
-            var _steamUsername = authenticateResult.Principal.FindFirstValue(ClaimTypes.Name);
+            if (authenticateResult.Principal == null)
+            {
+                throw new InvalidOperationException("Authentication principal is null");
+            }
 
-            var imgUrl = await _steamService.GetProfileImageUrlAsync(steamId64);
+            var _steamUsername = authenticateResult.Principal.FindFirstValue(ClaimTypes.Name) ?? "UnknownUser";
+
+            string imgUrl = string.Empty;
+            try
+            {
+                imgUrl = await _steamService.GetProfileImageUrlAsync(steamId64);
+            }
+            catch (Exception)
+            {
+                // Если не удалось получить изображение, продолжаем без него
+                imgUrl = string.Empty;
+            }
 
             var newUser = new SteamUser.Builder()
                 .WithUsername(_steamUsername)

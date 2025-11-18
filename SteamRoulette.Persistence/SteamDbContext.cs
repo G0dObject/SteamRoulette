@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SteamRoulette.Domain;
 using SteamRoulette.Domain.Common;
 
-namespace SteamRoulette.Persistanse
+namespace SteamRoulette.Persistence
 {
     public class SteamDbContext : IdentityDbContext<SteamUser, IdentityRole<int>, int>
     {
@@ -13,15 +13,16 @@ namespace SteamRoulette.Persistanse
         public DbSet<RoundBet> RoundBets { get; set; }
         public DbSet<SteamUser> SteamUsers { get; set; }
 
-        public SteamDbContext(DbContextOptions options) : base(options)
+        public SteamDbContext(DbContextOptions<SteamDbContext> options) : base(options)
         {
-            base.Database.EnsureDeleted();
-            base.Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = db.db");
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlite("Data Source = db.db");
+            }
             base.OnConfiguring(optionsBuilder);
         }
 
@@ -31,3 +32,4 @@ namespace SteamRoulette.Persistanse
         }
     }
 }
+

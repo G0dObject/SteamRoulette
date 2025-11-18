@@ -6,45 +6,59 @@ namespace SteamRoulette.WebApi
     {
         private readonly IHubContext<GameHub> _hubContext;
         private readonly Random _random;
-        private readonly double _crushThreshold;
+        private readonly double _baseCrashChance;
         private bool _isRunning;
+        private double _currentMultiplier;
 
         public Game(IHubContext<GameHub> hubContext)
         {
             _hubContext = hubContext;
             _random = new Random();
-            _crushThreshold = 0.9; // Пример порога для краха
+            _baseCrashChance = 0.01; // Базовая вероятность краха (1%)
             _isRunning = false;
+            _currentMultiplier = 1.0;
         }
 
         public async Task StartGameAsync(CancellationToken cancellationToken)
         {
             _isRunning = true;
-            double currentNumber = 0;
+            _currentMultiplier = 1.0;
+            const double increment = 0.01; // Шаг увеличения множителя
+            const int updateIntervalMs = 50; // Обновление каждые 50мс для плавности
 
             while (_isRunning && !cancellationToken.IsCancellationRequested)
             {
-                // Генерация случайного числа
-                currentNumber += _random.NextDouble();
+                // Вычисляем вероятность краха на основе текущего множителя
+                // Чем выше множитель, тем выше вероятность краха
+                double crashProbability = _baseCrashChance * _currentMultiplier;
 
-                // Отправка текущего числа клиентам
-                await _hubContext.Clients.All.SendAsync("ReceiveNumber", currentNumber, cancellationToken);
-
-                // Проверка на крах
-                if (currentNumber > _crushThreshold)
+                // Проверяем, произошел ли крах
+                if (_random.NextDouble() < crashProbability)
                 {
-                    await _hubContext.Clients.All.SendAsync("Crush", cancellationToken);
+                    await _hubContext.Clients.All.SendAsync("Crush", _currentMultiplier, cancellationToken);
                     _isRunning = false;
+                    break;
                 }
 
+                // Увеличиваем множитель
+                _currentMultiplier += increment;
+
+                // Отправка текущего множителя клиентам
+                await _hubContext.Clients.All.SendAsync("ReceiveNumber", Math.Round(_currentMultiplier, 2), cancellationToken);
+
                 // Задержка для имитации времени раунда
-                await Task.Delay(1000, cancellationToken);
+                await Task.Delay(updateIntervalMs, cancellationToken);
             }
         }
 
         public void StopGame()
         {
             _isRunning = false;
+        }
+
+        public double GetCurrentMultiplier()
+        {
+            return _currentMultiplier;
         }
     }
 }

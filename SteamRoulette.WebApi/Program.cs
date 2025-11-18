@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using SteamRoulette.Domain;
 using SteamRoulette.Infrastructure.Intefaces.Services;
-using SteamRoulette.Persistanse;
+using SteamRoulette.Persistence;
 using SteamRoulette.ServiceDefaults;
 using SteamRoulette.WebApi.DTO;
 using SteamRoulette.WebApi.Services;
@@ -36,18 +37,26 @@ internal class Program
         .AddDefaultTokenProviders();
         builder.Services.AddSignalR();
 
-        builder.Services.AddHttpClient<SteamService>();
+        builder.Services.AddHttpClient<SteamService>(client =>
+        {
+            client.Timeout = TimeSpan.FromSeconds(30);
+            client.DefaultRequestHeaders.Add("User-Agent", "SteamRoulette/1.0");
+        });
         builder.Services.AddSingleton<Game>();
         builder.Services.AddScoped<InventoryService>();
         builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 
+        var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() 
+            ?? new[] { "http://localhost:5173", "http://localhost:5000", "https://localhost:5173" };
+        
         builder.Services.AddCors(opt =>
         {
-            opt.AddPolicy("default", opt =>
+            opt.AddPolicy("default", policy =>
             {
-                opt.AllowAnyOrigin();
-                opt.AllowAnyMethod();
-                opt.AllowAnyHeader();
+                policy.WithOrigins(allowedOrigins)
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials();
             });
         });
         builder.Services.AddScoped<SteamService>();
@@ -56,16 +65,27 @@ internal class Program
 
         WebApplication app = builder.Build();
 
-        app.MapHealthChecks("/health");
-        app.MapControllers();
+        // Apply migrations
+        using (var scope = app.Services.CreateScope())
+        {
+            var dbContext = scope.ServiceProvider.GetRequiredService<SteamDbContext>();
+            dbContext.Database.Migrate();
+        }
+
         app.UseHttpsRedirection();
-        app.UseSwagger();
-        app.UseSwaggerUI();
-
         app.UseCors("default");
-
         app.UseAuthentication();
         app.UseAuthorization();
+
+        app.MapHealthChecks("/health");
+        app.MapControllers();
+        app.MapHub<GameHub>("/gamehub");
+        
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
 
         app.Run();
     }

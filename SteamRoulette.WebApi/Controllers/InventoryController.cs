@@ -5,7 +5,7 @@ using SteamRoulette.WebApi.Services;
 
 namespace SteamRoulette.WebApi.Controllers
 {
-    public class InventoryController(ILogger logger, InventoryService inventoryService, Mapper mapper)
+    public class InventoryController(InventoryService inventoryService, Mapper mapper)
     {
         [Authorize]
         [HttpGet]

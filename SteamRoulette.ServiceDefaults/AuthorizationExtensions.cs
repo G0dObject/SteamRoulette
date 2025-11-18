@@ -32,8 +32,16 @@ namespace SteamRoulette.ServiceDefaults
      .AddSteam(options =>
      {
          options.SaveTokens = true;
-
-         options.ApplicationKey = configuration["Steam:Key"];
+         options.ApplicationKey = configuration["Steam:Key"] ?? configuration["Steam:KEY"];
+         
+         // Обработка событий для отладки
+         options.Events.OnRemoteFailure = context =>
+         {
+             var error = context.Failure?.Message ?? "Unknown error";
+             context.Response.Redirect($"/api/Auth/Login?error={Uri.EscapeDataString(error)}");
+             context.HandleResponse();
+             return Task.CompletedTask;
+         };
      });
             return services;
         }

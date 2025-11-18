@@ -13,7 +13,8 @@ var url = import.meta.env.VITE_API_URL;
 var frontport = import.meta.env.VITE_CURRENT_PORT;
 
 const redirect = () => {
-  location.href = `${url}/api/auth/Login?ReturnUrl=http://localhost:${frontport}/Authorization/token?`;
+  const returnUrl = `http://localhost:${frontport}/Authorization/token`;
+  location.href = `${url}/api/auth/Login?returnUrl=${encodeURIComponent(returnUrl)}`;
 };
 
 const StatusBar: React.FC<StatusBarProps> = ({
